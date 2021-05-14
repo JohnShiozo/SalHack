@@ -59,7 +59,7 @@ public class SalFontRenderer
             prevScaleFactor = resolution.getScaleFactor();
             try
             {
-                unicodeFont = new UnicodeFont(getFontByName("Tw Cen MT").deriveFont(fontSize * prevScaleFactor / 2));
+                unicodeFont = new UnicodeFont(getFontByName("Comfortaa light").deriveFont(fontSize * prevScaleFactor / 2));
                 unicodeFont.addAsciiGlyphs();
                 unicodeFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE));
                 unicodeFont.loadGlyphs();
