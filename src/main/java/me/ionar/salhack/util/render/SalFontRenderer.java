@@ -85,16 +85,16 @@ public class SalFontRenderer
 
     public static Font getFontByName(String name) throws IOException, FontFormatException
     {
-        if (name == "Tw Cen MT")
-            return getFontFromInput("/assets/salhack/fonts/tcm.TTF");
+        if (name == "Comfortaa Bold")
+            return getFontFromInput("/assets/salhack/fonts/comfortaa-bold.ttf");
         if (name == "Tw Cen MT Std")
             return getFontFromInput("/assets/salhack/fonts/TwCenMTStd-Bold.ttf");
-        if (name == "Verdana Bold")
-            return getFontFromInput("/assets/salhack/fonts/verdanabold.ttf");
+        if (name == "Comfortaa light")
+            return getFontFromInput("/assets/salhack/fonts/comfortaa-light.ttf");
         if (name == "Lucida Console")
             return getFontFromInput("/assets/salhack/fonts/lucdia-console.ttf");
-        if (name == "VerdanaBold")
-            return getFontFromInput("/assets/salhack/fonts/verdanabold.ttf");
+        if (name == "Comfortaa light")
+            return getFontFromInput("/assets/salhack/fonts/comfortaa-light.ttf");
         
         // Attempt to find custom fonts
         return Font.createFont(Font.TRUETYPE_FONT, new File(DirectoryManager.Get().GetCurrentDirectory() + "\\SalHack\\Fonts\\" + name + ".ttf"));
