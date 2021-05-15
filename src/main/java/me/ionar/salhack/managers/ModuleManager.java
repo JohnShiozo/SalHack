@@ -197,7 +197,7 @@ public class ModuleManager
         Add(new PrinterBypassModule());
 
         /// Dupe
-        Add(new AutoDuperWWEModule());
+        //Add(new AutoDuperWWEModule());
         
         LoadExternalModules();
         
