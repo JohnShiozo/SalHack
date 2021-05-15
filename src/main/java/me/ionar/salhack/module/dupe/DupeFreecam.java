@@ -1,10 +1,10 @@
-package me.ionar.salhack.modules.dupe;
+package me.ionar.salhack.module.dupe;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
-import me.ionar.salhack.modules.Module;
+import me.ionar.salhack.module.Module;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
@@ -14,8 +14,8 @@ import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.event.RenderLivingEventPre;
-import net.minecraftforge.client.event.RenderLivingEventSpecials$Pre;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.client.event.RenderLivingEventSpecials;
 import net.minecraftforge.event.world.WorldEventLoad;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -116,14 +116,14 @@ extends Module {
     }
 
     @SubscribeEvent
-    public void onEntityRender(RenderLivingEvent$Pre<?> event) {
+    public void onEntityRender(RenderLivingEvent<?> event) {
         if (originalPlayer != null && this.mc.player != null && this.mc.player.equals(event.getEntity())) {
             event.setCanceled(true);
         }
     }
 
     @SubscribeEvent
-    public void onRenderTag(RenderLivingEvent$Specials$Pre<?> event) {
+    public void onRenderTag(RenderLivingEventSpecials<?> event) {
         if (originalPlayer != null && this.mc.player != null && this.mc.player.equals(event.getEntity())) {
             event.setCanceled(true);
         }
