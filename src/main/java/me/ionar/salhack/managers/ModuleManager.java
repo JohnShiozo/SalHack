@@ -197,7 +197,11 @@ public class ModuleManager
         Add(new PrinterBypassModule());
 
         /// Dupe
+<<<<<<< HEAD
         Add(new DupeFreecam());
+=======
+        //Add(new AutoDuperWWEModule());
+>>>>>>> 8b28e187ef3266b540a604b9c3770a44f3b1e15b
         
         LoadExternalModules();
         
