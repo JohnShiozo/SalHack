@@ -14,9 +14,9 @@ import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.client.event.RenderLivingEventSpecials;
-import net.minecraftforge.event.world.WorldEventLoad;
+import net.minecraftforge.client.event.RenderLivingEvent.Pre;
+import net.minecraftforge.client.event.RenderLivingEvent.Specials.Pre;
+import net.minecraftforge.event.world.WorldEvent.Load;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public final class DupeFreecam
@@ -116,14 +116,14 @@ extends Module {
     }
 
     @SubscribeEvent
-    public void onEntityRender(RenderLivingEvent<?> event) {
+    public void onEntityRender(RenderLivingEvent.Pre<?> event) {
         if (originalPlayer != null && this.mc.player != null && this.mc.player.equals(event.getEntity())) {
             event.setCanceled(true);
         }
     }
 
     @SubscribeEvent
-    public void onRenderTag(RenderLivingEventSpecials<?> event) {
+    public void onRenderTag(RenderLivingEvent.Specials.Pre<?> event) {
         if (originalPlayer != null && this.mc.player != null && this.mc.player.equals(event.getEntity())) {
             event.setCanceled(true);
         }
