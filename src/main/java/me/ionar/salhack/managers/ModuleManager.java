@@ -20,6 +20,7 @@ import me.ionar.salhack.module.render.*;
 import me.ionar.salhack.module.schematica.*;
 import me.ionar.salhack.module.ui.*;
 import me.ionar.salhack.module.world.*;
+import me.ionar.salhack.module.dupe.*
 import me.ionar.salhack.preset.Preset;
 import me.ionar.salhack.util.ReflectionUtil;
 import me.ionar.salhack.util.render.RenderUtil;
