@@ -28,12 +28,12 @@ public final class VanishDismountModule extends Module {
     private Listener<EventNetworkPacketEvent> PacketEvent = new Listener((p_Event) -> {
         int var5;
         int l_EntityId;
-        if (p_Event.getPacket() instanceof SPacketSetPassengers) {
+        if (p_Event.GetPacket() instanceof SPacketSetPassengers) {
             if (this.Riding == null) {
                 return;
             }
 
-            SPacketSetPassengers l_Packet = (SPacketSetPassengers)p_Event.getPacket();
+            SPacketSetPassengers l_Packet = (SPacketSetPassengers)p_Event.GetPacket();
             Entity en = this.mc.world.getEntityByID(l_Packet.getEntityId());
             if (en == this.Riding) {
                 int[] var4 = l_Packet.getPassengerIds();
@@ -50,8 +50,8 @@ public final class VanishDismountModule extends Module {
                 this.SendMessage("You dismounted. RIP");
                 this.toggle();
             }
-        } else if (p_Event.getPacket() instanceof SPacketDestroyEntities) {
-            SPacketDestroyEntities l_Packetx = (SPacketDestroyEntities)p_Event.getPacket();
+        } else if (p_Event.GetPacket() instanceof SPacketDestroyEntities) {
+            SPacketDestroyEntities l_Packetx = (SPacketDestroyEntities)p_Event.GetPacket();
             int[] var10 = l_Packetx.getEntityIDs();
             int var11 = var10.length;
 
@@ -67,7 +67,7 @@ public final class VanishDismountModule extends Module {
     }, new Predicate[0]);
     @EventHandler
     private Listener<EntityJoinWorldEvent> OnWorldEvent = new Listener((p_Event) -> {
-        if (p_Event.getEntity() == this.mc.player) {
+        if (p_Event.GetEntity() == this.mc.player) {
             this.SendMessage("Joined world event!");
         }
 
