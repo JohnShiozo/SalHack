@@ -44,7 +44,7 @@ public class EntityESPModule extends Module
     
     public EntityESPModule()
     {
-        super("EntityESP", new String[] {""}, "Highlights different kind of storages", "NONE", -1, ModuleType.RENDER);
+        super("EntityESP", new String[] {""}, "Highlights different kind of entities", "NONE", -1, ModuleType.RENDER);
 
         Mode.Listener = new ValueListeners()
         {
