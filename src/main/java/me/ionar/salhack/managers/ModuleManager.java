@@ -199,7 +199,6 @@ public class ModuleManager
 
         /// Dupe
         Add(new DupeFreecam());
-        Add(new VanishDismountModule());
         
         LoadExternalModules();
         
