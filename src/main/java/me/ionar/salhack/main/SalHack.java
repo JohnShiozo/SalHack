@@ -35,6 +35,7 @@ public class SalHack
     private static AlwaysEnabledModule m_AlwaysEnabledMod;
     private static PresetsManager m_PresetsManager = new PresetsManager();
     private static UUIDManager m_UUIDManager = new UUIDManager();
+    public static RotationManager rotationManager;
 
     public static void Init()
     {
@@ -44,6 +45,7 @@ public class SalHack
         /// load before mods
         m_FontManager.Load();
         m_PresetsManager.LoadPresets(); // must be before module init 
+        rotationManager = new RotationManager();
         m_ModuleManager.Init();
         m_HudManager.Init();
         m_CommandManager.InitalizeCommands();
