@@ -33,7 +33,7 @@ public class StrafePhobosModule extends Module {
     private int cooldownHops = 0;
 
     public StrafePhobosModule() {
-        super("StrafePhobos", new String[]{"strafephobos"}, "Phobos Strafe ported to Salhack", "NONE", -1, Module.ModuleType.MOVEMENT);
+        super("StrafePhobos", new String[]{"strafephobos"}, "Phobos Strafe ported to Salhack(doesnt work atm)", "NONE", -1, Module.ModuleType.MOVEMENT);
     }
 
     public void onEnable() {
