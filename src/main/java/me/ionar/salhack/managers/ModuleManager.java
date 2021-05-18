@@ -136,7 +136,7 @@ public class ModuleManager
         Add(new SpeedModule());
         Add(new SprintModule());
         Add(new StepModule());
-        Add(new StrafePhobosModule());
+        // Add(new StrafePhobosModule());
         Add(new YawModule());
         
         /// Render
