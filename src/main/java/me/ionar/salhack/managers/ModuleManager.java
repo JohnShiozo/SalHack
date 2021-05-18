@@ -55,6 +55,7 @@ public class ModuleManager
         Add(new AutoTotemModule());
         Add(new AutoTrap());
         Add(new AutoTrapFeet());
+        Add(new AutoWebModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
         Add(new HoleFillerModule());
