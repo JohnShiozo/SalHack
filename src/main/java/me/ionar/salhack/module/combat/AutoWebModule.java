@@ -61,7 +61,7 @@ public class AutoWebModule extends Module {
     }, new Predicate[0]);
 
     public AutoWebModule() {
-        super("AutoWeb", new String[]{"AW"}, "Traps players with web.", "NONE", 2411227, Module.ModuleType.COMBAT);
+        super("AutoWeb", new String[]{"AW"}, "Traps players with cobweb.", "NONE", 2411227, Module.ModuleType.COMBAT);
     }
 
     public String getMetaData() {
