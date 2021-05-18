@@ -12,6 +12,7 @@ import me.ionar.salhack.managers.ImageManager;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.managers.NotificationManager;
 import me.ionar.salhack.managers.PresetsManager;
+import me.ionar.salhack.managers.RotationManager;
 import me.ionar.salhack.managers.TickRateManager;
 import me.ionar.salhack.managers.UUIDManager;
 import me.ionar.salhack.waypoints.WaypointManager;
