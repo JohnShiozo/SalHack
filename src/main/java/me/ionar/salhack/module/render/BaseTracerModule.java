@@ -54,8 +54,8 @@ public class BaseTracerModule extends Module {
         boolean bobbing = this.mc.gameSettings.viewBobbing;
         this.mc.gameSettings.viewBobbing = false;
         this.mc.entityRenderer.setupCameraTransform(event.getPartialTicks(), 0);
-        Vec3d forward = (new Vec3d(0.0D, 0.0D, 1.0D)).rotatePitch(-((float)Math.toRadians((double)Minecraft.getMinecraft().player.rotationPitch))).rotateYaw(-((float)Math.toRadians((double)Minecraft.getMinecraft().player.rotationYaw)));
-        RenderUtil.drawLine3D((float)forward.x, (float)forward.y + this.mc.player.getEyeHeight(), (float)forward.z, (float)pos.getX(), (float)pos.getY(), (float)pos.getZ(), 0.5F, this.getColor(block));
+        Vec3d forward = (new Vec3d(0.0D, 0.0D, 1.0D)).rotatePitch(-(FMath.toRadians((double)Minecraft.getMinecraft().player.rotationPitch))).rotateYaw(-(FMath.toRadians((double)Minecraft.getMinecraft().player.rotationYaw)));
+        RenderUtil.drawLine3D(Fforward.x, Fforward.y + this.mc.player.getEyeHeight(), Fforward.z, Fpos.getX(), Fpos.getY(), Fpos.getZ(), 0.5F, this.getColor(block));
         this.mc.gameSettings.viewBobbing = bobbing;
         this.mc.entityRenderer.setupCameraTransform(event.getPartialTicks(), 0);
     }
