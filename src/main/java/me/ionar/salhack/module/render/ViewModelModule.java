@@ -1,5 +1,3 @@
-// Decompiled with: FernFlower
-// Class Version: 8
 package me.ionar.salhack.module.render;
 
 import java.util.function.Predicate;
