@@ -202,6 +202,7 @@ public class ModuleManager
         Add(new PrinterBypassModule());
 
         /// Dupe
+        Add(new AutoDuperModule());
         Add(new DupeFreecam());
         
         LoadExternalModules();
