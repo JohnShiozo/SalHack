@@ -142,6 +142,7 @@ public class ModuleManager
         
         /// Render
         Add(new AntiFog());
+        Add(new BaseTracerModule());
         Add(new BlockHighlightModule());
         Add(new BreakHighlightModule());
         Add(new BrightnessModule());
