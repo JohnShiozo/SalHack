@@ -52,6 +52,7 @@ public class ModuleManager
         Add(new AutoCityModule());
         Add(new AutoCrystalModule());
         Add(new AutoCrystalRewrite());
+        Add(new AutoLavaModule());
         Add(new AutoTotemModule());
         Add(new AutoTrap());
         Add(new AutoTrapFeet());
@@ -141,6 +142,7 @@ public class ModuleManager
         
         /// Render
         Add(new AntiFog());
+        Add(new BaseTracerModule());
         Add(new BlockHighlightModule());
         Add(new BreakHighlightModule());
         Add(new BrightnessModule());
@@ -157,11 +159,13 @@ public class ModuleManager
         Add(new NoRenderModule());
         Add(new ShulkerPreviewModule());
         Add(new SkeletonModule());
+        Add(new SkyColorModule());
         Add(new SmallShieldModule());
         Add(new StorageESPModule());
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule());
         Add(new VoidESPModule());
         Add(new WaypointsModule());
         Add(new MapBoundariesModule());
