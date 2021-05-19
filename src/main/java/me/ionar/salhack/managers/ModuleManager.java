@@ -164,6 +164,7 @@ public class ModuleManager
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule());
         Add(new VoidESPModule());
         Add(new WaypointsModule());
         Add(new MapBoundariesModule());
