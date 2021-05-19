@@ -5,7 +5,6 @@ import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.events.render.EventRenderGetFOVModifier;
 import me.ionar.salhack.events.render.RenderEvent;
 import me.ionar.salhack.managers.ModuleManager;
-import me.ionar.salhack.module.misc.AdvancedChatSpammerModule;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.renderer.GlStateManager;
