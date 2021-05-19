@@ -142,6 +142,7 @@ public class ModuleManager
         
         /// Render
         Add(new AntiFog());
+        Add(new BaseTracerModule());
         Add(new BlockHighlightModule());
         Add(new BreakHighlightModule());
         Add(new BrightnessModule());
@@ -164,6 +165,7 @@ public class ModuleManager
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule());
         Add(new VoidESPModule());
         Add(new WaypointsModule());
         Add(new MapBoundariesModule());
