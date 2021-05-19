@@ -1,5 +1,3 @@
-// Decompiled with: CFR 0.151
-// Class Version: 8
 package me.ionar.salhack.module.render;
 
 import java.util.List;
