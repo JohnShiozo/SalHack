@@ -6,7 +6,7 @@ import me.ionar.salhack.events.render.RenderEvent;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.ChunkUtils;
-import me.ionar.salhack.util.render.RenderUtil;
+import me.ionar.salhack.util.render.RenderUtil2;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.block.Block;
