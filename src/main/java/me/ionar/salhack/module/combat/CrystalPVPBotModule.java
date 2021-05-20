@@ -31,7 +31,7 @@ public class CrystalPVPBotModule extends Module
 
     public CrystalPVPBotModule()
     {
-        super("CrystalPVPBot", new String[] {"CPVPBot"}, "Automatically fights the battles for you, because pvp is gay.", "NONE", -1, ModuleType.BOT);
+        super("CrystalPVPBot", new String[] {"CPVPBot"}, "Automatically fights the battles for you, because pvp is gay.", "NONE", -1, ModuleType.COMBAT);
     }
     
     private boolean isEating;
