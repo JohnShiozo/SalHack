@@ -30,7 +30,7 @@ import static org.lwjgl.opengl.GL11.*;
 /**
  * Author Seth 4/16/2019 @ 3:28 AM.
  */
-public final class RenderUtil
+public final class RenderUtilBot
 {
 
     private static final IntBuffer VIEWPORT = GLAllocation.createDirectIntBuffer(16);

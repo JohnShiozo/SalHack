@@ -16,10 +16,10 @@ import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.Timer;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
-import me.ionar.salhack.util.render.RenderUtilBot; // mark
+import me.ionar.salhack.util.render.RenderUtilBot;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
-import me.ionar.salhack.util.CrystalUtils2;
+import me.ionar.salhack.util.CrystalUtils2; // mark
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -673,7 +673,7 @@ public class AutoCrystalBot extends Module
     });
     
     @EventHandler
-    private Listener<EventPlayerMotionUpdate> OnPlayerUpdate = new Listener<>(event ->
+    private Listener<EventPlayerMotionUpdateBot> OnPlayerUpdate = new Listener<>(event ->
     {
         // we only want to run this event on pre motion, but don't reset rotations here
         if (event.getStage() != MCEventBot.Stage.Pre)

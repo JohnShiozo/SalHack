@@ -1,4 +1,4 @@
-package com.salhack.summit.util.entity;
+package me.ionar.salhack.util.entity;
 
 import java.net.URL;
 import java.util.UUID;
@@ -9,7 +9,7 @@ import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import com.salhack.summit.util.MathUtil;
+import me.ionar.salhack.util.MathUtil;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetworkPlayerInfo;
