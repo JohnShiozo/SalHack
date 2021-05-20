@@ -1,7 +1,7 @@
 package me.ionar.salhack.main;
 
-import me.ionar.salhack.module.misc.*,
 import me.ionar.salhack.module.combat.*;
+import me.ionar.salhack.module.misc.*;
 
 public class SalHackStatic
 {
