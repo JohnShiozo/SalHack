@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Module.ModuleType;
 import me.ionar.salhack.module.Value;
@@ -25,6 +26,8 @@ import me.ionar.salhack.preset.Preset;
 import me.ionar.salhack.util.ReflectionUtil;
 import me.ionar.salhack.util.render.RenderUtil;
 import net.minecraft.client.gui.GuiScreen;
+
+import static me.ionar.salhack.main.SalHackStatic.*;
 
 public class ModuleManager
 {
@@ -51,7 +54,7 @@ public class ModuleManager
         Add(new AutoArmorModule());
         Add(new AutoCityModule());
         Add(new AutoCrystalModule());
-        Add(new AutoCrystalRewrite());
+        Add(AutoCrystalRewrite = new AutoCrystalRewrite());
         Add(new AutoLavaModule());
         Add(new AutoTotemModule());
         Add(new AutoTrap());
@@ -60,12 +63,12 @@ public class ModuleManager
         Add(new BowSpamModule());
         Add(new CriticalsModule());
         Add(new HoleFillerModule());
-        Add(new KillAuraModule());
+        Add(KillAuraModule = new KillAuraModule());
         Add(new MiddleClickPearlModule());
         Add(new OffhandModule());
         Add(new ReachModule());
         Add(new SelfTrapModule());
-        Add(new SurroundModule());
+        Add(SurroundModule = new SurroundModule());
         Add(new VelocityModule());
         
         /// Exploit
