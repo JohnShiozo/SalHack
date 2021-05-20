@@ -17,7 +17,7 @@ import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.Timer;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
-import me.ionar.salhack.util.render.RenderUtilBotBot;
+import me.ionar.salhack.util.render.RenderUtilBot;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import me.ionar.salhack.util.CrystalUtils2; // mark
