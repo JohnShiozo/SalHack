@@ -1,8 +1,8 @@
-package com.salhack.summit.events.player;
+package me.ionar.salhack.events.player;
 
 import java.util.function.Consumer;
 
-import com.salhack.summit.events.MinecraftEvent;
+import me.ionar.salhack.events.MinecraftEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
 
 public class EventPlayerMotionUpdateBot extends MinecraftEvent

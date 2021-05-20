@@ -545,7 +545,7 @@ public class PlayerUtilBot extends MinecraftInstance
         return -1;
     }
 
-    public static void sendMovementPackets(EventPlayerMotionUpdate event)
+    public static void sendMovementPackets(EventPlayerMotionUpdateBot event)
     {
         final Minecraft mc = Wrapper.GetMC();
 
