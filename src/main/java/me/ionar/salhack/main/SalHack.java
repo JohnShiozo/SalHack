@@ -1,5 +1,6 @@
 package me.ionar.salhack.main;
 
+import com.salhack.summit.util.render.RenderUtil;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.managers.CapeManager;
 import me.ionar.salhack.managers.CommandManager;
@@ -40,6 +41,7 @@ public class SalHack
     public static void Init()
     {
         SalHackMod.log.info("initalizing salhack object (all static fields)");
+        RenderUtilBot.init(); // init static class
         m_DirectoryManager.Init();
 
         /// load before mods

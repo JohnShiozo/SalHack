@@ -53,8 +53,9 @@ public class ModuleManager
         Add(new Auto32kModule());
         Add(new AutoArmorModule());
         Add(new AutoCityModule());
+        Add(AutoCrystalBot = new AutoCrystalBot());
         Add(new AutoCrystalModule());
-        Add(AutoCrystalRewrite = new AutoCrystalRewrite());
+        Add(new AutoCrystalRewrite());
         Add(new AutoLavaModule());
         Add(new AutoTotemModule());
         Add(new AutoTrap());

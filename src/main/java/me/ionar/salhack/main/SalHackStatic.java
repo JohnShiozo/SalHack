@@ -6,7 +6,7 @@ public class SalHackStatic
 {
     // mods
 
-    public static KillAuraModule KILLAURAMODULE;
-    public static AutoCrystalRewrite AUTOCRYSTALREWRITE;
-    public static SurroundModule SURROUNDMODULE;
+    public static KillAuraModule KillAuraModule;
+    public static AutoCrystalBot AutoCrystalBot;
+    public static SurroundModule SurroundModule;
 }

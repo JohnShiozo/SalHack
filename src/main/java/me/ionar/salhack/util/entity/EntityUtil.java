@@ -1,12 +1,15 @@
-package me.ionar.salhack.util.entity;
+package com.salhack.summit.util.entity;
 
-import java.awt.Point;
+import java.net.URL;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
-import me.ionar.salhack.util.MathUtil;
+import org.apache.commons.io.IOUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import com.salhack.summit.util.MathUtil;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -19,6 +22,7 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -116,7 +120,7 @@ public class EntityUtil
      */
     public static boolean isHostileMob(Entity entity)
     {
-        return (entity.isCreatureType(EnumCreatureType.MONSTER, false) && !EntityUtil.isNeutralMob(entity));
+        return (entity.isCreatureType(EnumCreatureType.MONSTER, false) && !EntityUtil.isNeutralMob(entity)) || entity instanceof EntitySpider;
     }
 
     /**
@@ -291,5 +295,29 @@ public class EntityUtil
             return new BlockPos(v.x, v.y, v.z);
         
         return new BlockPos(v.x, v.y, v.z).add(toAdd);
+    }
+
+    public static String getNameFromUUID(UUID id)
+    {
+        final String url = "https://api.mojang.com/user/profiles/" + id.toString().replace("-", "") + "/names";
+        try
+        {
+            @SuppressWarnings("deprecation")
+            final String nameJson = IOUtils.toString(new URL(url));
+            if (nameJson != null && nameJson.length() > 0) {
+                final JSONArray jsonArray = (JSONArray) JSONValue.parseWithException(nameJson);
+                if (jsonArray != null) {
+                    final JSONObject latestName = (JSONObject) jsonArray.get(jsonArray.size() - 1);
+                    if (latestName != null) {
+                        return latestName.get("name").toString();
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "unk";
     }
 }
