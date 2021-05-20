@@ -1,7 +1,7 @@
 package me.ionar.salhack.events;
 
 import me.ionar.salhack.main.Wrapper;
-import me.zero.alpine.fork.event.type.Cancellable;
+import me.ionar.salhack.events.Cancellable;
 
 public class MinecraftEvent extends Cancellable
 {
