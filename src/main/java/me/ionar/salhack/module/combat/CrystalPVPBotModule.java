@@ -83,21 +83,21 @@ public class CrystalPVPBotModule extends Module
         {
             BaritoneAPI.getProvider().getPrimaryBaritone().getCustomGoalProcess().setGoal(null);
             
-            if (!SalHackStatic.AutoCrystalRewrite.isEnabled())
-                SalHackStatic.AutoCrystalRewrite.toggle();
+            if (!SalHackStatic.AUTOCRYSTALREWRITE.isEnabled())
+                SalHackStatic.AUTOCRYSTALREWRITE.toggle();
             
             if (!PlayerUtilBot.IsPlayerInHole())
             {
                 // no hole found, use SurroundModule
                 if (!baritoneIntoHole())
                 {
-                    if (!SalHackStatic.SurroundModule.isEnabled())
-                        SalHackStatic.SurroundModule.toggle();
+                    if (!SalHackStatic.SURROUNDMODULE.isEnabled())
+                        SalHackStatic.SURROUNDMODULE.toggle();
                 }
                 else
                 {
-                    if (SalHackStatic.SurroundModule.isEnabled())
-                        SalHackStatic.SurroundModule.toggle();
+                    if (SalHackStatic.SURROUNDMODULE.isEnabled())
+                        SalHackStatic.SURROUNDMODULE.toggle();
                 }
             }
             
@@ -105,27 +105,27 @@ public class CrystalPVPBotModule extends Module
             
             if (enemyInHole)
             {
-                if (target.getHealth()+target.getAbsorptionAmount() > AutoCrystalRewrite.FacePlace.getValue())
+                if (target.getHealth()+target.getAbsorptionAmount() > AUTOCRYSTALREWRITE.FacePlace.getValue())
                 {
-                    if (!SalHackStatic.KillAuraModule.isEnabled())
-                        SalHackStatic.KillAuraModule.toggle();
+                    if (!SalHackStatic.KILLAURAMODULE.isEnabled())
+                        SalHackStatic.KILLAURAMODULE.toggle();
                 }
                 else
                 {
-                    if (SalHackStatic.KillAuraModule.isEnabled())
-                        SalHackStatic.KillAuraModule.toggle();
+                    if (SalHackStatic.KILLAURAMODULE.isEnabled())
+                        SalHackStatic.KILLAURAMODULE.toggle();
                 }
             }
             else
             {
-                if (SalHackStatic.AutoCrystalRewrite.isCrystalling())
+                if (SalHackStatic.AUTOCRYSTALREWRITE.isCrystalling())
                 {
-                    if (SalHackStatic.KillAuraModule.isEnabled())
-                        SalHackStatic.KillAuraModule.toggle();
+                    if (SalHackStatic.KILLAURAMODULE.isEnabled())
+                        SalHackStatic.KILLAURAMODULE.toggle();
                 }
-                else if (!SalHackStatic.KillAuraModule.isEnabled())
+                else if (!SalHackStatic.KILLAURAMODULE.isEnabled())
                 {
-                    SalHackStatic.KillAuraModule.toggle();
+                    SalHackStatic.KILLAURAMODULE.toggle();
                     
                     int slot = PlayerUtilBot.GetItemSlot(Items.DIAMOND_SWORD);
                     
@@ -139,12 +139,12 @@ public class CrystalPVPBotModule extends Module
         }
         else
         {
-            if (SalHackStatic.SurroundModule.isEnabled())
-                SalHackStatic.SurroundModule.toggle();
-            if (SalHackStatic.AutoCrystalRewrite.isEnabled())
-                SalHackStatic.AutoCrystalRewrite.toggle();
-            if (SalHackStatic.KillAuraModule.isEnabled())
-                SalHackStatic.KillAuraModule.toggle();
+            if (SalHackStatic.SURROUNDMODULE.isEnabled())
+                SalHackStatic.SURROUNDMODULE.toggle();
+            if (SalHackStatic.AUTOCRYSTALREWRITE.isEnabled())
+                SalHackStatic.AUTOCRYSTALREWRITE.toggle();
+            if (SalHackStatic.KILLAURAMODULE.isEnabled())
+                SalHackStatic.KILLAURAMODULE.toggle();
             
             BaritoneAPI.getProvider().getPrimaryBaritone().getCustomGoalProcess().setGoalAndPath(GoalXZ.fromDirection(
                     mc.player.getPositionVector(),
