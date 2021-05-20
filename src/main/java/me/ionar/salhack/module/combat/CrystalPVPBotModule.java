@@ -4,6 +4,7 @@ import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import me.ionar.salhack.events.player.EventPlayerOnStoppedUsingItem;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
+import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
