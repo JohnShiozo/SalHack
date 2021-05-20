@@ -82,7 +82,7 @@ public class AutoCrystalBot extends Module
     public static final Value<Integer> Blue = new Value<Integer>("Blue", new String[] {"Blue"}, "Blue for rendering", 0xF3, 0, 255, 5);
     public static final Value<Integer> Alpha = new Value<Integer>("Alpha", new String[] {"Alpha"}, "Alpha for rendering", 0x99, 0, 255, 5);
     
-    public AutoCrystal()
+    public AutoCrystalBot()
     {
         super("AutoCrystal", new String[] {"CrystalAura"}, "Automatically places and destroys crystals", "NONE", 0xE22200, ModuleType.COMBAT);
         
