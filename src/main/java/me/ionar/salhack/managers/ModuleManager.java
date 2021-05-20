@@ -62,6 +62,7 @@ public class ModuleManager
         Add(new AutoWebModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
+        Add(new CrystalPVPBotModule());
         Add(new HoleFillerModule());
         Add(KillAuraModule = new KillAuraModule());
         Add(new MiddleClickPearlModule());
