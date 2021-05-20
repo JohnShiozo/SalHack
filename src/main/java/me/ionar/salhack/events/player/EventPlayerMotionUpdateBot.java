@@ -2,10 +2,10 @@ package me.ionar.salhack.events.player;
 
 import java.util.function.Consumer;
 
-import me.ionar.salhack.events.MinecraftEvent;
+import me.ionar.salhack.events.MCEventBot;
 import net.minecraft.client.entity.EntityPlayerSP;
 
-public class EventPlayerMotionUpdateBot extends MinecraftEvent
+public class EventPlayerMotionUpdateBot extends MCEventBot
 {
     protected float _yaw;
     protected float _pitch;
