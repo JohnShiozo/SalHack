@@ -1,40 +1,27 @@
 package me.ionar.salhack.events;
 
 import me.ionar.salhack.main.Wrapper;
-import me.ionar.salhack.events.bus.Cancellable;
+import me.zero.alpine.fork.event.type.Cancellable;
 
 public class MinecraftEvent extends Cancellable
 {
-    private Stage _stage = Stage.Pre;
-    private final float partialTicks;
     private Era era = Era.PRE;
-
-    public Era getEra()
-    {
-        return era;
-    }
-
+    private final float partialTicks;
 
     public MinecraftEvent()
     {
         partialTicks = Wrapper.GetMC().getRenderPartialTicks();
     }
     
-    public MinecraftEvent(Stage stage)
+    public MinecraftEvent(Era p_Era)
     {
-        this();
-        _stage = stage;
+        partialTicks = Wrapper.GetMC().getRenderPartialTicks();
+        era = p_Era;
     }
 
-    public Stage getStage()
+    public Era getEra()
     {
-        return _stage;
-    }
-
-    public void setEra(Stage stage)
-    {
-        this.setCancelled(false);
-        _stage = stage;
+        return era;
     }
 
     public float getPartialTicks()
@@ -42,16 +29,11 @@ public class MinecraftEvent extends Cancellable
         return partialTicks;
     }
     
-    public enum Stage
-    {
-        Pre,
-        Post,
-    }
-
     public enum Era
     {
         PRE,
         PERI,
-        POST,
+        POST
     }
+
 }
