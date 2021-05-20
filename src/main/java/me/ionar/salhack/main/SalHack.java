@@ -1,6 +1,6 @@
 package me.ionar.salhack.main;
 
-import me.ionar.salhack.util.render.RenderUtil;
+import me.ionar.salhack.util.render.RenderUtilBot;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.managers.CapeManager;
 import me.ionar.salhack.managers.CommandManager;
