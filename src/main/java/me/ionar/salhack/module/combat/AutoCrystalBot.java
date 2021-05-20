@@ -17,7 +17,7 @@ import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.Timer;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
-import me.ionar.salhack.util.render.RenderUtilBot;
+import me.ionar.salhack.util.render.RenderUtilBotBot;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import me.ionar.salhack.util.CrystalUtils2; // mark
@@ -754,10 +754,10 @@ public class AutoCrystalBot extends Module
                     pos.getY() + (1) - mc.getRenderManager().viewerPosY,
                     pos.getZ() + 1 - mc.getRenderManager().viewerPosZ);
     
-            RenderUtil.camera.setPosition(mc.getRenderViewEntity().posX, mc.getRenderViewEntity().posY,
+            RenderUtilBot.camera.setPosition(mc.getRenderViewEntity().posX, mc.getRenderViewEntity().posY,
                     mc.getRenderViewEntity().posZ);
     
-            if (RenderUtil.camera.isBoundingBoxInFrustum(new AxisAlignedBB(bb.minX + mc.getRenderManager().viewerPosX,
+            if (RenderUtilBot.camera.isBoundingBoxInFrustum(new AxisAlignedBB(bb.minX + mc.getRenderManager().viewerPosX,
                     bb.minY + mc.getRenderManager().viewerPosY, bb.minZ + mc.getRenderManager().viewerPosZ,
                     bb.maxX + mc.getRenderManager().viewerPosX, bb.maxY + mc.getRenderManager().viewerPosY,
                     bb.maxZ + mc.getRenderManager().viewerPosZ)))
@@ -774,8 +774,8 @@ public class AutoCrystalBot extends Module
     
                 int color = (Alpha.getValue() << 24) | (Red.getValue() << 16) | (Green.getValue() << 8) | Blue.getValue(); 
                 
-                RenderUtil.drawBoundingBox(bb, 1.0f, color);
-                RenderUtil.drawFilledBox(bb, color);
+                RenderUtilBot.drawBoundingBox(bb, 1.0f, color);
+                RenderUtilBot.drawFilledBox(bb, color);
                 glDisable(GL_LINE_SMOOTH);
                 GlStateManager.depthMask(true);
                 GlStateManager.enableDepth();
@@ -786,12 +786,12 @@ public class AutoCrystalBot extends Module
                 if (_placedCrystalsDamage.containsKey(pos))
                 {
                     GlStateManager.pushMatrix();
-                    RenderUtil.glBillboardDistanceScaled((float) pos.getX() + 0.5f, (float) pos.getY() + 0.5f, (float) pos.getZ() + 0.5f, mc.player, 1);
+                    RenderUtilBot.glBillboardDistanceScaled((float) pos.getX() + 0.5f, (float) pos.getY() + 0.5f, (float) pos.getZ() + 0.5f, mc.player, 1);
                     final float damage = _placedCrystalsDamage.get(pos);
                     final String damageText = (Math.floor(damage) == damage ? (int) damage : String.format("%.1f", damage)) + "";
                     GlStateManager.disableDepth();
-                    GlStateManager.translate(-(RenderUtil.getStringWidth(damageText) / 2.0d), 0, 0);
-                    RenderUtil.drawStringWithShadow(damageText, 0, 0, -1);
+                    GlStateManager.translate(-(RenderUtilBot.getStringWidth(damageText) / 2.0d), 0, 0);
+                    RenderUtilBot.drawStringWithShadow(damageText, 0, 0, -1);
                     GlStateManager.popMatrix();
                 }
             }
