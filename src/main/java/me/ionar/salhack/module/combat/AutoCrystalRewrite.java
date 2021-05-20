@@ -730,4 +730,9 @@ public class AutoCrystalRewrite extends Module
     {
         return _lastTarget;
     }
+    
+    public boolean isCrystalling()
+    {
+        return !_rotationResetTimer.passed(1000);
+    }
 }
