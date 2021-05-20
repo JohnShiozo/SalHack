@@ -183,7 +183,7 @@ public class CrystalUtils2
         }
         
         int flooredRadius = MathHelper.floor(AutoCrystalBot.PlaceRadius.getValue()) + 1;
-        BlockPos playerPosFloored = PlayerUtil.GetLocalPlayerPosFloored();
+        BlockPos playerPosFloored = PlayerUtilBot.GetLocalPlayerPosFloored();
         
         for (int x = playerPosFloored.getX() - flooredRadius; x <= playerPosFloored.getX() + flooredRadius; ++x)
             for (int y = playerPosFloored.getY() - flooredRadius; y <= playerPosFloored.getY() + flooredRadius; ++y)

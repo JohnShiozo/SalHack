@@ -1134,14 +1134,6 @@ public final class RenderUtilBot
         tessellator.draw();
     }
 
-    public static FontRenderer GetFontRenderer()
-    {
-        if (!ShouldUseCustomFont())
-            return Wrapper.GetMC().fontRenderer;
-        
-        return Wrapper.GetMC().fontRenderer;//salhack.GetFontManager().GetFontRenderer();
-    }
-
     public static void renderOne(float width) {
         checkSetupFBO();
         GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);

@@ -8,7 +8,7 @@ import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
-import me.ionar.salhack.module.combat.AutoCrystalRewrite;
+import me.ionar.salhack.module.combat.AutoCrystalBot;
 import me.ionar.salhack.util.Hole;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
 import me.ionar.salhack.util.render.ESPUtil;
@@ -83,21 +83,21 @@ public class CrystalPVPBotModule extends Module
         {
             BaritoneAPI.getProvider().getPrimaryBaritone().getCustomGoalProcess().setGoal(null);
             
-            if (!SalHackStatic.AUTOCRYSTALREWRITE.isEnabled())
-                SalHackStatic.AUTOCRYSTALREWRITE.toggle();
+            if (!SalHackStatic.AutoCrystalBot.isEnabled())
+                SalHackStatic.AutoCrystalBot.toggle();
             
             if (!PlayerUtilBot.IsPlayerInHole())
             {
                 // no hole found, use SurroundModule
                 if (!baritoneIntoHole())
                 {
-                    if (!SalHackStatic.SURROUNDMODULE.isEnabled())
-                        SalHackStatic.SURROUNDMODULE.toggle();
+                    if (!SalHackStatic.SurroundModule.isEnabled())
+                        SalHackStatic.SurroundModule.toggle();
                 }
                 else
                 {
-                    if (SalHackStatic.SURROUNDMODULE.isEnabled())
-                        SalHackStatic.SURROUNDMODULE.toggle();
+                    if (SalHackStatic.SurroundModule.isEnabled())
+                        SalHackStatic.SurroundModule.toggle();
                 }
             }
             
@@ -105,27 +105,27 @@ public class CrystalPVPBotModule extends Module
             
             if (enemyInHole)
             {
-                if (target.getHealth()+target.getAbsorptionAmount() > AUTOCRYSTALREWRITE.FacePlace.getValue())
+                if (target.getHealth()+target.getAbsorptionAmount() > AutoCrystalBot.FacePlace.getValue())
                 {
-                    if (!SalHackStatic.KILLAURAMODULE.isEnabled())
-                        SalHackStatic.KILLAURAMODULE.toggle();
+                    if (!SalHackStatic.KillAuraModule.isEnabled())
+                        SalHackStatic.KillAuraModule.toggle();
                 }
                 else
                 {
-                    if (SalHackStatic.KILLAURAMODULE.isEnabled())
-                        SalHackStatic.KILLAURAMODULE.toggle();
+                    if (SalHackStatic.KillAuraModule.isEnabled())
+                        SalHackStatic.KillAuraModule.toggle();
                 }
             }
             else
             {
-                if (SalHackStatic.AUTOCRYSTALREWRITE.isCrystalling())
+                if (SalHackStatic.AutoCrystalBot.isCrystalling())
                 {
-                    if (SalHackStatic.KILLAURAMODULE.isEnabled())
-                        SalHackStatic.KILLAURAMODULE.toggle();
+                    if (SalHackStatic.KillAuraModule.isEnabled())
+                        SalHackStatic.KillAuraModule.toggle();
                 }
-                else if (!SalHackStatic.KILLAURAMODULE.isEnabled())
+                else if (!SalHackStatic.KillAuraModule.isEnabled())
                 {
-                    SalHackStatic.KILLAURAMODULE.toggle();
+                    SalHackStatic.KillAuraModule.toggle();
                     
                     int slot = PlayerUtilBot.GetItemSlot(Items.DIAMOND_SWORD);
                     
@@ -139,12 +139,12 @@ public class CrystalPVPBotModule extends Module
         }
         else
         {
-            if (SalHackStatic.SURROUNDMODULE.isEnabled())
-                SalHackStatic.SURROUNDMODULE.toggle();
-            if (SalHackStatic.AUTOCRYSTALREWRITE.isEnabled())
-                SalHackStatic.AUTOCRYSTALREWRITE.toggle();
-            if (SalHackStatic.KILLAURAMODULE.isEnabled())
-                SalHackStatic.KILLAURAMODULE.toggle();
+            if (SalHackStatic.SurroundModule.isEnabled())
+                SalHackStatic.SurroundModule.toggle();
+            if (SalHackStatic.AutoCrystalBot.isEnabled())
+                SalHackStatic.AutoCrystalBot.toggle();
+            if (SalHackStatic.KillAuraModule.isEnabled())
+                SalHackStatic.KillAuraModule.toggle();
             
             BaritoneAPI.getProvider().getPrimaryBaritone().getCustomGoalProcess().setGoalAndPath(GoalXZ.fromDirection(
                     mc.player.getPositionVector(),

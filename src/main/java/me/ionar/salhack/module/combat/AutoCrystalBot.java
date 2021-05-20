@@ -12,6 +12,7 @@ import me.ionar.salhack.main.Wrapper;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
+import me.ionar.salhack.module.ValueListeners;
 import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.Timer;
 import me.ionar.salhack.util.entity.EntityUtil;
@@ -799,32 +800,32 @@ public class AutoCrystalBot extends Module
     
     public static boolean NeedPause()
     {
-        /// We need to pause if we have surround enabled, and don't have obsidian
-        if (SalHackStatic.SURROUND.isEnabled() && !SalHackStatic.SURROUND.IsSurrounded() && SalHackStatic.SURROUND.HasObsidian())
+        /// We need to pause if we have SurroundModule enabled, and don't have obsidian
+        if (SalHackStatic.SurroundModule.isEnabled() && !SalHackStatic.SurroundModule.IsSurroundModuleed() && SalHackStatic.SurroundModule.HasObsidian())
         {
-            if (!SalHackStatic.SURROUND.ActivateOnlyOnShift.getValue())
+            if (!SalHackStatic.SurroundModule.ActivateOnlyOnShift.getValue())
                 return true;
 
             if (!Wrapper.GetMC().gameSettings.keyBindSneak.isKeyDown())
                 return true;
         }
         
-        if (SalHackStatic.AUTOTRAPFEET.isEnabled() && !SalHackStatic.AUTOTRAPFEET.IsCurrentTargetTrapped() && SalHackStatic.AUTOTRAPFEET.HasObsidian())
+        if (SalHackStatic.AutoTrapFeet.isEnabled() && !SalHackStatic.AutoTrapFeet.IsCurrentTargetTrapped() && SalHackStatic.AutoTrapFeet.HasObsidian())
             return true;
         
-        if (SalHackStatic.AUTOMEND.isEnabled())
+        if (SalHackStatic.AutoMendArmorModule.isEnabled())
             return true;
         
-        if (SalHackStatic.SELFTRAP.isEnabled() && !SalHackStatic.SELFTRAP.IsSelfTrapped() && SalHackStatic.SURROUND.HasObsidian())
+        if (SalHackStatic.SelfTrapModule.isEnabled() && !SalHackStatic.SelfTrapModule.IsSelfTrapModuleped() && SalHackStatic.SurroundModule.HasObsidian())
             return true;
         
-        if (SalHackStatic.HOLEFILLER.isEnabled() && SalHackStatic.HOLEFILLER.IsProcessing())
+        if (SalHackStatic.HoleFillerModule.isEnabled() && SalHackStatic.HoleFillerModule.IsProcessing())
             return true;
 
         if (PauseIfHittingBlock.getValue() && Wrapper.GetMC().playerController.isHittingBlock && Wrapper.GetMC().player.getHeldItemMainhand().getItem() instanceof ItemTool)
             return true;
         
-        if (SalHackStatic.AUTOCITY.isEnabled())
+        if (SalHackStatic.AutoCityModule.isEnabled())
             return true;
         
         if (PauseWhileEating.getValue() && PlayerUtilBot.IsEating())
