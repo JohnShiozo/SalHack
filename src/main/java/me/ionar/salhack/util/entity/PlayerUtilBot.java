@@ -2,7 +2,7 @@ package me.ionar.salhack.util.entity;
 
 import java.text.DecimalFormat;
 
-import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
+import me.ionar.salhack.events.player.EventPlayerMotionUpdateBot;
 import me.ionar.salhack.main.Wrapper;
 import me.ionar.salhack.util.MinecraftInstance;
 
