@@ -1,6 +1,6 @@
 package me.ionar.salhack.util.render;
 
-import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.main.salhack;
 import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.main.Wrapper;
 import net.minecraft.client.Minecraft;
@@ -36,6 +36,13 @@ public final class RenderUtilBot
     private static final IntBuffer VIEWPORT = GLAllocation.createDirectIntBuffer(16);
     private static final FloatBuffer MODELVIEW = GLAllocation.createDirectFloatBuffer(16);
     private static final FloatBuffer PROJECTION = GLAllocation.createDirectFloatBuffer(16);
+    
+    public static ICamera camera = new Frustum();
+    
+    public static void init()
+    {
+        
+    }
     
     public static void updateModelViewProjectionMatrix()
     {
