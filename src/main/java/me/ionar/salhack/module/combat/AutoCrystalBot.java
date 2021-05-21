@@ -806,9 +806,6 @@ public class AutoCrystalBot extends Module
         if (PauseIfHittingBlock.getValue() && Wrapper.GetMC().playerController.isHittingBlock && Wrapper.GetMC().player.getHeldItemMainhand().getItem() instanceof ItemTool)
             return true;
         
-        if (SalHackStatic.AutoCityModule.isEnabled())
-            return true;
-        
         if (PauseWhileEating.getValue() && PlayerUtilBot.IsEating())
             return true;
         
