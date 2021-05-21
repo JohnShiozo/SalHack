@@ -83,21 +83,30 @@ public class AutoCrystalBot extends Module
     public static final Value<Integer> Blue = new Value<Integer>("Blue", new String[] {"Blue"}, "Blue for rendering", 0xF3, 0, 255, 5);
     public static final Value<Integer> Alpha = new Value<Integer>("Alpha", new String[] {"Alpha"}, "Alpha for rendering", 0x99, 0, 255, 5);
     
+    public enum BreakMode
+    {
+        Always,
+        Smart,
+        OnlyOwn
+    }
+    
+    public enum PlaceMode
+    {
+        Most,
+        Lethal,
+    }
+
+    public enum SwapMode
+    {
+        Hotbar,
+        inventory,
+        GoBack,
+        None,
+    }
+
     public AutoCrystalBot()
     {
-        super("AutoCrystal", new String[] {"CrystalAura"}, "Automatically places and destroys crystals", "NONE", 0xE22200, ModuleType.COMBAT);
-        
-        BreakMode.addString("Always");
-        BreakMode.addString("Smart");
-        BreakMode.addString("OnlyOwn");
-        
-        PlaceMode.addString("Most");
-        PlaceMode.addString("Lethal");
-        
-        SwapMode.addString("Hotbar");
-        SwapMode.addString("Inventory");
-        SwapMode.addString("GoBack");
-        SwapMode.addString("None");
+        super("AutoCrystal", new String[] {"AutoCrystalBot"}, "AutoCrystal Module used by the CPVPBot.", "NONE", 0xE22200, ModuleType.COMBAT);
     }
     
     public static Timer _removeVisualTimer = new Timer();
