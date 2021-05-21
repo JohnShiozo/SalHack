@@ -35,7 +35,7 @@ public class ArrayListComponent extends HudComponentItem
     public String GenerateModuleDisplayName(final Module p_Mod) {
         String l_DisplayName = p_Mod.GetArrayListDisplayName();
         if (p_Mod.getMetaData() != null) {
-            l_DisplayName = l_DisplayName + " " + ChatFormatting.GRAY + "{" + ChatFormatting.GRAY + p_Mod.getMetaData() + ChatFormatting.GRAY + "}";
+            l_DisplayName = l_DisplayName + " " + ChatFormatting.GRAY + "[" + ChatFormatting.GRAY + p_Mod.getMetaData() + ChatFormatting.GRAY + "]";
         }
         return l_DisplayName;
     }

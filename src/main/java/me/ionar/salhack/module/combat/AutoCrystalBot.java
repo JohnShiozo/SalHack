@@ -106,7 +106,7 @@ public class AutoCrystalBot extends Module
 
     public AutoCrystalBot()
     {
-        super("AutoCrystal", new String[] {"AutoCrystalBot"}, "AutoCrystal Module used by the CPVPBot.", "NONE", 0xE22200, ModuleType.COMBAT);
+        super("AutoCrystalBot", new String[] {"AutoCrystalBot"}, "AutoCrystal Module used by the CPVPBot.", "NONE", 0xE22200, ModuleType.COMBAT);
     }
     
     public static Timer _removeVisualTimer = new Timer();
@@ -804,9 +804,6 @@ public class AutoCrystalBot extends Module
     public static boolean NeedPause()
     {
         if (PauseIfHittingBlock.getValue() && Wrapper.GetMC().playerController.isHittingBlock && Wrapper.GetMC().player.getHeldItemMainhand().getItem() instanceof ItemTool)
-            return true;
-        
-        if (SalHackStatic.AutoCityModule.isEnabled())
             return true;
         
         if (PauseWhileEating.getValue() && PlayerUtilBot.IsEating())
