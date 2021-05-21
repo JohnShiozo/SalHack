@@ -1,5 +1,7 @@
 package me.ionar.salhack.command.impl;
 
+import me.ionar.salhack.command.Command;
+
 import com.mojang.realmsclient.gui.ChatFormatting;
 import baritone.api.BaritoneAPI;
 
