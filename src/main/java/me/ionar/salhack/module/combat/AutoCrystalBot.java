@@ -677,12 +677,6 @@ public class AutoCrystalBot extends Module
     });
     
     @EventHandler
-    private Listener<EventPlayerUpdate> onPlayerUpdate = new Listener<>(event ->
-    {
-        setMetaData(_lastTarget); 
-    });
-    
-    @EventHandler
     private Listener<EventPlayerMotionUpdateBot> OnPlayerUpdate = new Listener<>(event ->
     {
         // we only want to run this event on pre motion, but don't reset rotations here
