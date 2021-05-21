@@ -1,6 +1,6 @@
 package me.ionar.salhack.util.render;
 
-import me.ionar.salhack.main.salhack;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.main.Wrapper;
 import net.minecraft.client.Minecraft;
