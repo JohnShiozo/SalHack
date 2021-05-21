@@ -800,28 +800,6 @@ public class AutoCrystalBot extends Module
     
     public static boolean NeedPause()
     {
-        /// We need to pause if we have SurroundModule enabled, and don't have obsidian
-        if (SalHackStatic.SurroundModule.isEnabled() && !SalHackStatic.SurroundModule.IsSurroundModuleed() && SalHackStatic.SurroundModule.HasObsidian())
-        {
-            if (!SalHackStatic.SurroundModule.ActivateOnlyOnShift.getValue())
-                return true;
-
-            if (!Wrapper.GetMC().gameSettings.keyBindSneak.isKeyDown())
-                return true;
-        }
-        
-        if (SalHackStatic.AutoTrapFeet.isEnabled() && !SalHackStatic.AutoTrapFeet.IsCurrentTargetTrapped() && SalHackStatic.AutoTrapFeet.HasObsidian())
-            return true;
-        
-        if (SalHackStatic.AutoMendArmorModule.isEnabled())
-            return true;
-        
-        if (SalHackStatic.SelfTrapModule.isEnabled() && !SalHackStatic.SelfTrapModule.IsSelfTrapModuleped() && SalHackStatic.SurroundModule.HasObsidian())
-            return true;
-        
-        if (SalHackStatic.HoleFillerModule.isEnabled() && SalHackStatic.HoleFillerModule.IsProcessing())
-            return true;
-
         if (PauseIfHittingBlock.getValue() && Wrapper.GetMC().playerController.isHittingBlock && Wrapper.GetMC().player.getHeldItemMainhand().getItem() instanceof ItemTool)
             return true;
         
