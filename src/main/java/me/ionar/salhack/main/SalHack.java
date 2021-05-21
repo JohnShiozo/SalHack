@@ -41,7 +41,7 @@ public class SalHack
     public static void Init()
     {
         SalHackMod.log.info("initalizing salhack object (all static fields)");
-        RenderUtilBot.init(); // init static class
+        RenderUtilBot.Init(); // init static class
         m_DirectoryManager.Init();
 
         /// load before mods
