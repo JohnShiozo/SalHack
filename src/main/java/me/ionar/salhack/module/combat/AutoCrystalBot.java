@@ -106,7 +106,7 @@ public class AutoCrystalBot extends Module
 
     public AutoCrystalBot()
     {
-        super("AutoCrystal", new String[] {"AutoCrystalBot"}, "AutoCrystal Module used by the CPVPBot.", "NONE", 0xE22200, ModuleType.COMBAT);
+        super("AutoCrystalBot", new String[] {"AutoCrystalBot"}, "AutoCrystal Module used by the CPVPBot.", "NONE", 0xE22200, ModuleType.COMBAT);
     }
     
     public static Timer _removeVisualTimer = new Timer();
