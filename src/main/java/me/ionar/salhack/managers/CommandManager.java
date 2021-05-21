@@ -19,6 +19,7 @@ public class CommandManager
     
     public void InitalizeCommands()
     {
+        Commands.add(new BaritoneCommand());
         Commands.add(new FriendCommand());
         Commands.add(new HelpCommand());
         Commands.add(new SoundReloadCommand());

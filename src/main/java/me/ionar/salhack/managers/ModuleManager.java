@@ -53,7 +53,7 @@ public class ModuleManager
         Add(new Auto32kModule());
         Add(new AutoArmorModule());
         Add(new AutoCityModule());
-        Add(AutoCrystalBot = new AutoCrystalBot());
+        // Add(AutoCrystalBot = new AutoCrystalBot());
         Add(new AutoCrystalModule());
         Add(new AutoCrystalRewrite());
         Add(new AutoLavaModule());
@@ -63,7 +63,7 @@ public class ModuleManager
         Add(new AutoWebModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
-        Add(new CrystalPVPBotModule());
+        // Add(new CrystalPVPBotModule());
         Add(new HoleFillerModule());
         Add(KillAuraModule = new KillAuraModule());
         Add(new MiddleClickPearlModule());
