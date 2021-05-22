@@ -209,6 +209,7 @@ public class ModuleManager
 
         /// Dupe
         Add(new AutoDuperModule());
+        Add(new DupeBotModule());
         Add(new DupeFreecam());
         
         LoadExternalModules();
