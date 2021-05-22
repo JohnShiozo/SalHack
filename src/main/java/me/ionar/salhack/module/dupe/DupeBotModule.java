@@ -15,6 +15,7 @@ import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.exploit.EntityDesyncModule;
 import me.ionar.salhack.module.exploit.PacketCancellerModule;
+import me.ionar.salhack.module.dupe.DupeFreecam;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.block.material.Material;
