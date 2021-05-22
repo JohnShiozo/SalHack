@@ -1,4 +1,4 @@
-package me.ionar.salhack.modules.dupe;
+package me.ionar.salhack.module.dupe;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import java.util.Comparator;
