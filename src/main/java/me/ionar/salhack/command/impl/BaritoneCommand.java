@@ -12,9 +12,7 @@ public class BaritoneCommand extends Command
     super("b", "Baritone API Pog");
   }
   @Override
-  public void
-  execute(String command, String[] args) throws Exception
-  {
+  public void execute(String command, String[] args) throws Exception{
     BaritoneAPI.getProvider().getPrimaryBaritone().getCommandManager().execute(String.join(" ", args));
   }
 }
