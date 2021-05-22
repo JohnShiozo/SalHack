@@ -127,6 +127,7 @@ public class ModuleManager
         Add(new AutoWalkModule());
         Add(new BlinkModule());
         Add(new ElytraFlyModule());
+        Add(new EntitySpeedModule());
         Add(new EntityControlModule());
         Add(new FastFallModule());
         Add(new FlightModule());

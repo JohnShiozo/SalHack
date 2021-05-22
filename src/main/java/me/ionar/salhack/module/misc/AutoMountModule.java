@@ -21,6 +21,7 @@ public class AutoMountModule extends Module
     public final Value<Boolean> Donkeys = new Value<Boolean>("Donkeys", new String[] {"Donkey"}, "Mounts Donkeys", true);
     public final Value<Boolean> Pigs = new Value<Boolean>("Pigs", new String[] {"Pig"}, "Mounts Pigs", true);
     public final Value<Boolean> Llamas = new Value<Boolean>("Llamas", new String[] {"Llama"}, "Mounts Llamas", true);
+    public final Value<Boolean> Mules = new Value<Boolean>("Mules", new String[] {"Mules"}, "Mounts Mules", true);
     public final Value<Integer> Range = new Value<Integer>("Range", new String[] {"R"}, "Range to search for mountable entities", 4, 0, 10, 1);
     public final Value<Float> Delay = new Value<Float>("Delay", new String[] {"D"}, "Delay to use", 1.0f, 0.0f, 10.0f, 1.0f);
 
@@ -87,6 +88,14 @@ public class AutoMountModule extends Module
         }
 
         if (entity instanceof EntityLlama && Llamas.getValue())
+        {
+            EntityLlama l_Llama = (EntityLlama) entity;
+
+            if (!l_Llama.isChild())
+                return true;
+        }
+
+        if (entity instanceof EntityMule && Llamas.getValue())
         {
             EntityLlama l_Llama = (EntityLlama) entity;
 
