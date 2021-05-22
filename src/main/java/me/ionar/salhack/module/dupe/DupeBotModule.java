@@ -1,30 +1,39 @@
 package me.ionar.salhack.modules.dupe;
 
-import me.ionar.salhack.modules.*;
-import me.ionar.salhack.modules.exploit.*;
-import net.minecraft.entity.*;
-import me.ionar.salhack.events.player.*;
-import me.zero.alpine.fork.listener.*;
-import me.ionar.salhack.events.network.*;
-import java.util.function.*;
-import net.minecraft.network.play.server.*;
-import net.minecraft.entity.passive.*;
-import me.ionar.salhack.main.*;
-import net.minecraft.inventory.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import com.mojang.realmsclient.gui.*;
-import net.minecraft.client.gui.*;
-import net.minecraft.util.math.*;
-import net.minecraft.block.material.*;
-import net.minecraft.init.*;
-import net.minecraft.util.*;
-import me.ionar.salhack.managers.*;
-import net.minecraft.block.state.*;
-import java.util.*;
-import net.minecraft.network.play.client.*;
-import net.minecraft.network.*;
-import net.minecraft.client.*;
+import com.mojang.realmsclient.gui.ChatFormatting;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.function.Predicate;
+import me.ionar.salhack.events.network.EventNetworkPacketEvent;
+import me.ionar.salhack.events.player.EventPlayerUpdate;
+import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.managers.ModuleManager;
+import me.ionar.salhack.managers.TickRateManager;
+import me.ionar.salhack.modules.Module;
+import me.ionar.salhack.modules.Value;
+import me.ionar.salhack.modules.exploit.EntityDesyncModule;
+import me.ionar.salhack.modules.exploit.PacketCancellerModule;
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.AbstractChestHorse;
+import net.minecraft.init.Blocks;
+import net.minecraft.inventory.ClickType;
+import net.minecraft.item.ItemShulkerBox;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.client.CPacketInput;
+import net.minecraft.network.play.server.SPacketWindowItems;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.RayTraceResult.Type;
 
 public final class DupeBotModule extends Module
 {
@@ -115,12 +124,12 @@ public final class DupeBotModule extends Module
                     l_Donkey = this.GetNearDonkey();
                     this.RestartDupeNoInv = false;
                     if (l_Donkey == null) {
-                        GoproHack.SendMessage("Could not find the donkey near you");
+                        SalHack.SendMessage("Could not find the donkey near you");
                         this.mc.player.closeScreen();
                         this.HandleDupe();
                     }
                     else {
-                        GoproHack.SendMessage("Dumping items from " + this.mc.player.getRidingEntity().getName());
+                        SalHack.SendMessage("Dumping items from " + this.mc.player.getRidingEntity().getName());
                         l_Packet = (SPacketWindowItems)p_Event.getPacket();
                         l_I = 0;
                         l_Packet.getItemStacks().iterator();
@@ -134,7 +143,7 @@ public final class DupeBotModule extends Module
                             }
                             ++l_I;
                         }
-                        GoproHack.SendMessage(ChatFormatting.GREEN + "Done dumping items from " + this.mc.player.getRidingEntity().getName() + "!");
+                        SalHack.SendMessage(ChatFormatting.GREEN + "Done dumping items from " + this.mc.player.getRidingEntity().getName() + "!");
                         ++this.StreakCounter;
                         this.timer.schedule(new TimerTask() {
                             @Override
@@ -175,7 +184,7 @@ public final class DupeBotModule extends Module
             return;
         }
         if (this.mc.player.getRidingEntity() == null) {
-            GoproHack.SendMessage(ChatFormatting.RED + "You are not riding an entity!");
+            SalHack.SendMessage(ChatFormatting.RED + "You are not riding an entity!");
             this.toggle();
             return;
         }
@@ -189,7 +198,7 @@ public final class DupeBotModule extends Module
         this.ToggleOffMods();
         this.button = null;
         this.SetIgnoreStartClip = false;
-        GoproHack.SendMessage("Last Streak counter was " + this.StreakCounter);
+        SalHack.SendMessage("Last Streak counter was " + this.StreakCounter);
         this.StreakCounter = 0;
         this.HandleDupe();
     }
@@ -202,7 +211,7 @@ public final class DupeBotModule extends Module
     }
     
     public void HandleDupe() {
-        GoproHack.SendMessage(ChatFormatting.LIGHT_PURPLE + "Starting dupe!");
+        SalHack.SendMessage(ChatFormatting.LIGHT_PURPLE + "Starting dupe!");
         if (this.timer != null) {
             this.timer.cancel();
         }
@@ -219,35 +228,35 @@ public final class DupeBotModule extends Module
             }
         }
         if (this.button == null) {
-            GoproHack.SendMessage("Button is null!");
+            SalHack.SendMessage("Button is null!");
             return;
         }
         if (this.StartPos != Vec3d.ZERO) {
             this.mc.player.setPosition(this.StartPos.x, this.StartPos.y, this.StartPos.z);
         }
         this.mc.playerController.processRightClickBlock(this.mc.player, this.mc.world, this.button, EnumFacing.UP, new Vec3d(0.0, 0.0, 0.0), EnumHand.MAIN_HAND);
-        GoproHack.SendMessage("Rightclicked!");
+        SalHack.SendMessage("Rightclicked!");
         final float l_Tps = TickRateManager.Get().getTickRate();
-        GoproHack.SendMessage("Tps: " + l_Tps);
+        SalHack.SendMessage("Tps: " + l_Tps);
         this.riding = this.mc.player.getRidingEntity();
         this.timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 DupeBotModule.this.Freecam.toggle();
                 DupeBotModule.this.PacketCanceller.toggle();
-                GoproHack.SendMessage("Toggled the hax!");
+                SalHack.SendMessage("Toggled the hax!");
             }
         }, 100L);
         this.timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 DupeBotModule.this.PacketCanceller.toggle();
-                GoproHack.SendMessage("Moving the donkey!");
+                SalHack.SendMessage("Moving the donkey!");
                 DupeBotModule.this.timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         DupeBotModule.this.PacketCanceller.toggle();
-                        GoproHack.SendMessage("Not moving the donkey!");
+                        SalHack.SendMessage("Not moving the donkey!");
                     }
                 }, DupeBotModule.this.CalculateNewTime(1000, l_Tps));
             }
@@ -266,12 +275,12 @@ public final class DupeBotModule extends Module
                                     @Override
                                     public void run() {
                                         DupeBotModule.this.EntityDesync.toggle();
-                                        GoproHack.SendMessage("EntityDesync - ON");
+                                        SalHack.SendMessage("EntityDesync - ON");
                                         DupeBotModule.this.timer.schedule(new TimerTask() {
                                             @Override
                                             public void run() {
                                                 DupeBotModule.this.EntityDesync.toggle();
-                                                GoproHack.SendMessage("EntityDesync - OFF");
+                                                SalHack.SendMessage("EntityDesync - OFF");
                                             }
                                         }, DupeBotModule.this.CalculateNewTime(100, l_Tps));
                                     }
@@ -294,7 +303,7 @@ public final class DupeBotModule extends Module
                                                     @Override
                                                     public void run() {
                                                         if (DupeBotModule.this.RestartDupeNoInv) {
-                                                            GoproHack.SendMessage("Detected Ghost Donkey, retrying");
+                                                            SalHack.SendMessage("Detected Ghost Donkey, retrying");
                                                             DupeBotModule.this.riding = null;
                                                             DupeBotModule.this.Remount();
                                                         }
@@ -321,7 +330,7 @@ public final class DupeBotModule extends Module
                                 DupeBotModule.this.timer.schedule(new TimerTask() {
                                     @Override
                                     public void run() {
-                                        GoproHack.SendMessage("Bypass done");
+                                        SalHack.SendMessage("Bypass done");
                                         if (DupeBotModule.this.PacketCanceller.isEnabled()) {
                                             DupeBotModule.this.PacketCanceller.toggle();
                                         }
@@ -331,12 +340,12 @@ public final class DupeBotModule extends Module
                                                 @Override
                                                 public void run() {
                                                     DupeBotModule.this.EntityDesync.toggle();
-                                                    GoproHack.SendMessage("EntityDesync - ON");
+                                                    SalHack.SendMessage("EntityDesync - ON");
                                                     DupeBotModule.this.timer.schedule(new TimerTask() {
                                                         @Override
                                                         public void run() {
                                                             DupeBotModule.this.EntityDesync.toggle();
-                                                            GoproHack.SendMessage("EntityDesync - OFF");
+                                                            SalHack.SendMessage("EntityDesync - OFF");
                                                         }
                                                     }, DupeBotModule.this.CalculateNewTime(100, l_Tps));
                                                 }
@@ -359,12 +368,12 @@ public final class DupeBotModule extends Module
                                                     public void run() {
                                                         DupeBotModule.this.RestartDupeNoInv = true;
                                                         DupeBotModule.this.mc.player.sendHorseInventory();
-                                                        GoproHack.SendMessage("Sending inventory.");
+                                                        SalHack.SendMessage("Sending inventory.");
                                                         DupeBotModule.this.timer.schedule(new TimerTask() {
                                                             @Override
                                                             public void run() {
                                                                 if (DupeBotModule.this.RestartDupeNoInv) {
-                                                                    GoproHack.SendMessage("Detected Ghost Donkey, retrying");
+                                                                    SalHack.SendMessage("Detected Ghost Donkey, retrying");
                                                                     DupeBotModule.this.riding = null;
                                                                     DupeBotModule.this.Remount();
                                                                 }
@@ -396,12 +405,12 @@ public final class DupeBotModule extends Module
                         public void run() {
                             DupeBotModule.this.RestartDupeNoInv = true;
                             DupeBotModule.this.mc.player.sendHorseInventory();
-                            GoproHack.SendMessage("Sending inventory.");
+                            SalHack.SendMessage("Sending inventory.");
                             DupeBotModule.this.timer.schedule(new TimerTask() {
                                 @Override
                                 public void run() {
                                     if (DupeBotModule.this.RestartDupeNoInv) {
-                                        GoproHack.SendMessage("Detected Ghost Donkey, retrying");
+                                        SalHack.SendMessage("Detected Ghost Donkey, retrying");
                                         DupeBotModule.this.riding = null;
                                         DupeBotModule.this.Remount();
                                     }
@@ -434,7 +443,7 @@ public final class DupeBotModule extends Module
     public void Remount() {
         final AbstractChestHorse l_Donkey = this.GetNearDonkey();
         if (l_Donkey != null) {
-            GoproHack.SendMessage(ChatFormatting.GREEN + "Processing remount on " + l_Donkey.getName());
+            SalHack.SendMessage(ChatFormatting.GREEN + "Processing remount on " + l_Donkey.getName());
             this.riding = null;
             this.mc.player.connection.sendPacket((Packet)new CPacketInput(this.mc.player.moveStrafing, this.mc.player.moveForward, this.mc.player.movementInput.jump, true));
             this.timer.schedule(new TimerTask() {
@@ -446,7 +455,7 @@ public final class DupeBotModule extends Module
             this.timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    GoproHack.SendMessage("Restarting dupe!");
+                    SalHack.SendMessage("Restarting dupe!");
                     DupeBotModule.this.HandleDupe();
                 }
             }, this.RestartTimer.getValue() + 111);
