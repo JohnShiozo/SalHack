@@ -137,11 +137,7 @@ public final class DupeBotModule extends Module
                         while (iterator.hasNext()) {
                             l_Stack = iterator.next();
                             if (l_I > 1 && l_I < 17) {
-<<<<<<< HEAD
                                 this.mc.playerController.windowClick(l_Packet.getWindowId(), l_I, 1, ClickType.THROW, this.mc.player);
-=======
-                                this.mc.playerController.windowClick(l_Packet.getWindowId(), l_I, 1, ClickType.THROW, (EntityPlayer)this.mc.player);
->>>>>>> 16184f2cad244e9ca6549d14b659f1faf4ee6a6f
                                 if (l_Stack.getItem() instanceof ItemShulkerBox) {
                                     ++this.ShulkersDuped;
                                 }
@@ -450,15 +446,11 @@ public final class DupeBotModule extends Module
         if (l_Donkey != null) {
             SalHack.SendMessage(ChatFormatting.GREEN + "Processing remount on " + l_Donkey.getName());
             this.riding = null;
-            this.mc.player.connection.sendPacket((Packet)new CPacketInput(this.mc.player.moveStrafing, this.mc.player.moveForward, this.mc.player.movementInput.jump, true));
+            this.mc.player.connection.sendPacket(new CPacketInput(this.mc.player.moveStrafing, this.mc.player.moveForward, this.mc.player.movementInput.jump, true));
             this.timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-<<<<<<< HEAD
                     DupeBotModule.this.mc.playerController.interactWithEntity(DupeBotModule.this.mc.player, (Entity)l_Donkey, EnumHand.MAIN_HAND);
-=======
-                    DupeBotModule.this.mc.playerController.interactWithEntity((EntityPlayer)DupeBotModule.this.mc.player, (Entity)l_Donkey, EnumHand.MAIN_HAND);
->>>>>>> 16184f2cad244e9ca6549d14b659f1faf4ee6a6f
                 }
             }, 111L);
             this.timer.schedule(new TimerTask() {
