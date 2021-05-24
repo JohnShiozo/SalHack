@@ -161,7 +161,7 @@ public class SpeedModule extends Module
             return;
 
         // movement data variables
-        float playerSpeed = 0.2950f;
+        float playerSpeed = 0.2969f;
         float moveForward = mc.player.movementInput.moveForward;
         float moveStrafe = mc.player.movementInput.moveStrafe;
         float rotationYaw = mc.player.rotationYaw;
