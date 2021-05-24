@@ -40,7 +40,7 @@ public class SpeedModule extends Module
 
     public SpeedModule()
     {
-        super("FasterSpeed", new String[]
+        super("Speed", new String[]
                 { "Strafe" }, "Speed strafe", "NONE", 0xDB2468, ModuleType.MOVEMENT);
     }
 
