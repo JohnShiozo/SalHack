@@ -61,6 +61,7 @@ public class ModuleManager
         Add(new AutoTrap());
         Add(new AutoTrapFeet());
         Add(new AutoWebModule());
+        Add(new BedAuraModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
         // Add(new CrystalPVPBotModule());
@@ -88,6 +89,7 @@ public class ModuleManager
         Add(new PacketFlyModule());
         Add(new PortalGodModeModule());
         Add(new SwingModule());
+        Add(new XCarryModule());
 
         /// Misc
         Add(new AntiAFKModule());
@@ -119,7 +121,6 @@ public class ModuleManager
         Add(new StopWatchModule());
         Add(new TotemPopNotifierModule());
         Add(new VisualRangeModule());
-        Add(new XCarryModule());
         
         /// Movement
         Add(new AnchorModule());
@@ -209,6 +210,7 @@ public class ModuleManager
 
         /// Dupe
         Add(new AutoDuperModule());
+        Add(new DupeBotModule());
         Add(new DupeFreecam());
         
         LoadExternalModules();
