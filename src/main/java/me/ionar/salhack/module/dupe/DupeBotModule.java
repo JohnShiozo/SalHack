@@ -56,8 +56,8 @@ public final class DupeBotModule extends Module
 
     public DupeBotModule()
     {
-        super("Dupe", new String[]
-        { "DupeMod" }, "2b dupe mod (OUTDATED ON SOME SERVERS)", "NONE", -1, ModuleType.DUPE);
+        super("DupeBot", new String[]
+        { "DupeBot" }, "2b dupe mod (OUTDATED ON SOME SERVERS)", "NONE", -1, ModuleType.DUPE);
     }
 
     private Vec3d StartPos = Vec3d.ZERO;
