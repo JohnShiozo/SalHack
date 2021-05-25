@@ -17,7 +17,7 @@ public class DiscordManager
         _rpcModule = (DiscordRPCModule)ModuleManager.Get().GetMod(DiscordRPCModule.class);
 
         DiscordRPC lib = DiscordRPC.INSTANCE;
-        String applicationId = "719038221807386665";
+        String applicationId = "845467603287015504";
         String steamId = "";
         DiscordEventHandlers handlers = new DiscordEventHandlers();
         handlers.ready = (user) -> System.out.println("Ready!");

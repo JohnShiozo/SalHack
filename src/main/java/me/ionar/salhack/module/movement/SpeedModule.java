@@ -22,14 +22,15 @@ import net.minecraft.util.math.MathHelper;
 public class SpeedModule extends Module
 {
     public final Value<Modes> Mode = new Value<Modes>("Mode", new String[]
-    { "Mode" }, "The mode of speed to use", Modes.Strafe);
+            { "Mode" }, "The mode of speed to use", Modes.Strafe);
     public final Value<Boolean> UseTimer = new Value<Boolean>("UseTimer", new String[]
-    { "UseTimer" }, "Uses timer to go faster", false);
+            { "UseTimer" }, "Uses timer to go faster", false);
     public final Value<Boolean> AutoSprint = new Value<Boolean>("AutoSprint", new String[]
-    { "AutoSprint" }, "Automatically sprints for you", false);
+            { "AutoSprint" }, "Automatically sprints for you", false);
     public final Value<Boolean> SpeedInWater = new Value<Boolean>("SpeedInWater", new String[] {"SpeedInWater"}, "Speeds in water", false);
     public final Value<Boolean> AutoJump = new Value<Boolean>("AutoJump", new String[] {"AutoJump"}, "Automatically jumps", true);
     public final Value<Boolean> Strict = new Value<Boolean>("Strict", new String[] {"Strict"}, "Strict mode, use this for when hauses patch comes back for strafe", false);
+    public final Value<Float> Multiplier = new Value<Float>("Multiplier", new String[] {"Mult"}, "Multiplication of vanilla speed", 0.25f, 0.0f, 0.5f, 0.005f);
 
     public enum Modes
     {
@@ -40,9 +41,9 @@ public class SpeedModule extends Module
     public SpeedModule()
     {
         super("Speed", new String[]
-        { "Strafe" }, "Speed strafe", "NONE", 0xDB2468, ModuleType.MOVEMENT);
+                { "Strafe" }, "Speed strafe", "NONE", 0xDB2468, ModuleType.MOVEMENT);
     }
-    
+
     private TimerModule Timer = null;
 
     @Override
@@ -50,15 +51,15 @@ public class SpeedModule extends Module
     {
         return String.valueOf(Mode.getValue());
     }
-    
+
     @Override
     public void onEnable()
     {
         super.onEnable();
-        
+
         Timer = (TimerModule) ModuleManager.Get().GetMod(TimerModule.class);
     }
-    
+
     @EventHandler
     private Listener<EventPlayerUpdate> OnPlayerUpdate = new Listener<>(p_Event ->
     {
@@ -70,40 +71,40 @@ public class SpeedModule extends Module
             if (!SpeedInWater.getValue())
                 return;
         }
-        
+
         if (UseTimer.getValue())
             Timer.SetOverrideSpeed(1.088f);
-        
+
         if (mc.player.moveForward != 0.0f || mc.player.moveStrafing != 0.0f)
-        { 
+        {
             if (AutoSprint.getValue())
                 mc.player.setSprinting(true);
-            
+
             if (mc.player.onGround && Mode.getValue() == Modes.Strafe)
             {
                 if (AutoJump.getValue())
                     mc.player.motionY = 0.405f;
-                
+
                 final float yaw = GetRotationYawForCalc();
-                mc.player.motionX -= MathHelper.sin(yaw) * 0.2f;
-                mc.player.motionZ += MathHelper.cos(yaw) * 0.2f;                
+                mc.player.motionX -= MathHelper.sin(yaw) * (Multiplier.getValue() + 0.002);
+                mc.player.motionZ += MathHelper.cos(yaw) * (Multiplier.getValue() + 0.002);
             }
             else if (mc.player.onGround && Mode.getValue() == Modes.OnGround)
             {
                 final float yaw = GetRotationYawForCalc();
-                mc.player.motionX -= MathHelper.sin(yaw) * 0.2f;
-                mc.player.motionZ += MathHelper.cos(yaw) * 0.2f;
+                mc.player.motionX -= MathHelper.sin(yaw) * (Multiplier.getValue() + 0.002);
+                mc.player.motionZ += MathHelper.cos(yaw) * (Multiplier.getValue() + 0.002);
                 mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY+0.4, mc.player.posZ, false));
                 /*
                 mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY, mc.player.posZ, true));
                 mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY+0.4, mc.player.posZ, true));*/
             }
         }
-        
+
         if (mc.gameSettings.keyBindJump.isKeyDown() && mc.player.onGround)
             mc.player.motionY = 0.405f;
     });
-    
+
     private float GetRotationYawForCalc()
     {
         float rotationYaw = mc.player.rotationYaw;
@@ -137,30 +138,30 @@ public class SpeedModule extends Module
         if (Mode.getValue() == Modes.Strafe)
             p_Event.cancel();
     });
-    
+
     @EventHandler
     private Listener<EventPlayerMove> OnPlayerMove = new Listener<>(p_Event ->
     {
         if (p_Event.getEra() != Era.PRE || Mode.getValue() == Modes.OnGround)
             return;
-        
+
         if (mc.player.isInWater() || mc.player.isInLava())
         {
             if (!SpeedInWater.getValue())
                 return;
         }
-        
+
         if (mc.player.capabilities != null)
         {
             if (mc.player.capabilities.isFlying || ModuleManager.Get().GetMod(FlightModule.class).isEnabled() || mc.player.isElytraFlying())
                 return;
         }
-        
+
         if (mc.player.onGround)
             return;
-        
+
         // movement data variables
-        float playerSpeed = 0.2873f;
+        float playerSpeed = 0.2980f;
         float moveForward = mc.player.movementInput.moveForward;
         float moveStrafe = mc.player.movementInput.moveStrafe;
         float rotationYaw = mc.player.rotationYaw;
@@ -171,7 +172,7 @@ public class SpeedModule extends Module
             final int amplifier = mc.player.getActivePotionEffect(MobEffects.SPEED).getAmplifier();
             playerSpeed *= (1.0f + 0.2f * (amplifier + 1));
         }
-        
+
         if (!Strict.getValue())
         {
             playerSpeed *= 1.0064f;
@@ -205,12 +206,14 @@ public class SpeedModule extends Module
                     moveForward = -1.0f;
                 }
             }
-            p_Event.X = ((moveForward * playerSpeed) * Math.cos(Math.toRadians((rotationYaw + 90.0f))) + (moveStrafe * playerSpeed) * Math.sin(Math.toRadians((rotationYaw + 90.0f))));
-            p_Event.Z = ((moveForward * playerSpeed) * Math.sin(Math.toRadians((rotationYaw + 90.0f))) - (moveStrafe * playerSpeed) * Math.cos(Math.toRadians((rotationYaw + 90.0f))));
+            double cos = Math.cos(Math.toRadians((rotationYaw + 90.0f)));
+            double sin = Math.sin(Math.toRadians((rotationYaw + 90.0f)));
+            p_Event.X = ((moveForward * playerSpeed) * cos + (moveStrafe * playerSpeed) * sin);
+            p_Event.Z = ((moveForward * playerSpeed) * sin - (moveStrafe * playerSpeed) * cos);
         }
         p_Event.cancel();
     });
-    
+
     @Override
     public void onDisable()
     {

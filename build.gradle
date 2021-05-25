@@ -24,14 +24,12 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
         classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
         classpath 'com.google.code.gson:gson:2.8.6'
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.9'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'com.github.johnrengelman.shadow'
-apply plugin: 'com.matthewprenger.cursegradle'
 
 version project.modVersion
 group project.modGroup // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -88,6 +86,7 @@ dependencies {
     }
     //Event Handler
     compile "com.github.ionar2:Alpine:1.9f"
+    compile group: "com.googlecode.json-simple", name: "json-simple", version: "1.1.1"
     compile group: 'net.jodah', name: 'typetools', version: '0.5.0'
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.19'
     compile(group: 'org.reflections', name: 'reflections', version: '0.9.11') {
@@ -142,6 +141,7 @@ shadowJar {
         include(dependency('org.yaml:snakeyaml'))
         include(dependency('org.reflections:reflections'))
         include(dependency('org.javassist:javassist'))
+        include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
     }
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
@@ -176,23 +176,3 @@ jar {
 }
 
 build.dependsOn(shadowJar)
-
-if (project.hasProperty('api_key_curseforge') && project.hasProperty('extra_curseforge_id')) {
-    tasks.curseforge.dependsOn signJars
-    curseforge {
-        apiKey = project.api_key_curseforge
-
-        project {
-            id = project.extra_curseforge_id
-            changelog = ''
-            releaseType = project.hasProperty('extra_curseforge_releasetype') ? project.extra_curseforge_releasetype : 'release'
-
-            addArtifact sourceJar
-            addArtifact apiJar
-
-            relations {
-                requiredLibrary 'lunatriuscore'
-            }
-        }
-    }
-}

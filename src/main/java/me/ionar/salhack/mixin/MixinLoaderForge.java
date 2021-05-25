@@ -9,6 +9,7 @@ import me.ionar.salhack.SalHackMod;
 
 import java.util.Map;
 
+@IFMLLoadingPlugin.MCVersion(value = "1.12.2")
 public class MixinLoaderForge implements IFMLLoadingPlugin
 {
     private static boolean isObfuscatedEnvironment = false;

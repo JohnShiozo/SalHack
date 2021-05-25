@@ -1,5 +1,6 @@
 package me.ionar.salhack.main;
 
+import me.ionar.salhack.util.render.RenderUtilBot;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.managers.CapeManager;
 import me.ionar.salhack.managers.CommandManager;
@@ -12,6 +13,7 @@ import me.ionar.salhack.managers.ImageManager;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.managers.NotificationManager;
 import me.ionar.salhack.managers.PresetsManager;
+import me.ionar.salhack.managers.RotationManager;
 import me.ionar.salhack.managers.TickRateManager;
 import me.ionar.salhack.managers.UUIDManager;
 import me.ionar.salhack.waypoints.WaypointManager;
@@ -34,15 +36,18 @@ public class SalHack
     private static AlwaysEnabledModule m_AlwaysEnabledMod;
     private static PresetsManager m_PresetsManager = new PresetsManager();
     private static UUIDManager m_UUIDManager = new UUIDManager();
+    public static RotationManager rotationManager;
 
     public static void Init()
     {
         SalHackMod.log.info("initalizing salhack object (all static fields)");
+        RenderUtilBot.init();
         m_DirectoryManager.Init();
 
         /// load before mods
         m_FontManager.Load();
         m_PresetsManager.LoadPresets(); // must be before module init 
+        rotationManager = new RotationManager();
         m_ModuleManager.Init();
         m_HudManager.Init();
         m_CommandManager.InitalizeCommands();

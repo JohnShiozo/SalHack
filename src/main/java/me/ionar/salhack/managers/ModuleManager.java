@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Module.ModuleType;
 import me.ionar.salhack.module.Value;
@@ -25,6 +26,8 @@ import me.ionar.salhack.preset.Preset;
 import me.ionar.salhack.util.ReflectionUtil;
 import me.ionar.salhack.util.render.RenderUtil;
 import net.minecraft.client.gui.GuiScreen;
+
+import static me.ionar.salhack.main.SalHackStatic.*;
 
 public class ModuleManager
 {
@@ -50,20 +53,24 @@ public class ModuleManager
         Add(new Auto32kModule());
         Add(new AutoArmorModule());
         Add(new AutoCityModule());
+        // Add(AutoCrystalBot = new AutoCrystalBot());
         Add(new AutoCrystalModule());
         Add(new AutoCrystalRewrite());
+        Add(new AutoLavaModule());
         Add(new AutoTotemModule());
         Add(new AutoTrap());
         Add(new AutoTrapFeet());
+        Add(new AutoWebModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
+        // Add(new CrystalPVPBotModule());
         Add(new HoleFillerModule());
-        Add(new KillAuraModule());
+        Add(KillAuraModule = new KillAuraModule());
         Add(new MiddleClickPearlModule());
         Add(new OffhandModule());
         Add(new ReachModule());
         Add(new SelfTrapModule());
-        Add(new SurroundModule());
+        Add(SurroundModule = new SurroundModule());
         Add(new VelocityModule());
         
         /// Exploit
@@ -120,6 +127,7 @@ public class ModuleManager
         Add(new AutoWalkModule());
         Add(new BlinkModule());
         Add(new ElytraFlyModule());
+        Add(new EntitySpeedModule());
         Add(new EntityControlModule());
         Add(new FastFallModule());
         Add(new FlightModule());
@@ -135,6 +143,7 @@ public class ModuleManager
         Add(new SpeedModule());
         Add(new SprintModule());
         Add(new StepModule());
+        // Add(new StrafePhobosModule());
         Add(new YawModule());
         
         /// Render
@@ -155,6 +164,7 @@ public class ModuleManager
         Add(new NoRenderModule());
         Add(new ShulkerPreviewModule());
         Add(new SkeletonModule());
+        Add(new SkyColorModule());
         Add(new SmallShieldModule());
         Add(new StorageESPModule());
         Add(new TracersModule());
@@ -198,6 +208,7 @@ public class ModuleManager
         Add(new PrinterBypassModule());
 
         /// Dupe
+        Add(new AutoDuperModule());
         Add(new DupeFreecam());
         
         LoadExternalModules();

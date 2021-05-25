@@ -1,17 +1,9 @@
 package me.ionar.salhack.module.render;
 
-import java.util.Iterator;
-
 import me.ionar.salhack.events.network.EventNetworkPacketEvent;
 import me.ionar.salhack.events.player.EventPlayerIsPotionActive;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
-import me.ionar.salhack.events.render.EventRenderArmorLayer;
-import me.ionar.salhack.events.render.EventRenderBossHealth;
-import me.ionar.salhack.events.render.EventRenderEntity;
-import me.ionar.salhack.events.render.EventRenderHurtCameraEffect;
-import me.ionar.salhack.events.render.EventRenderMap;
-import me.ionar.salhack.events.render.EventRenderSign;
-import me.ionar.salhack.events.render.EventRenderUpdateLightmap;
+import me.ionar.salhack.events.render.*;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.Timer;
@@ -24,6 +16,8 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.network.play.server.SPacketEntityStatus;
 import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 import net.minecraftforge.client.event.RenderBlockOverlayEvent.OverlayType;
+
+import java.util.Iterator;
 
 public class NoRenderModule extends Module
 {
@@ -39,6 +33,8 @@ public class NoRenderModule extends Module
     public final Value<Boolean> NoArmorPlayers = new Value<Boolean>("NoArmorPlayers", new String[] {"NoArmorPlayers"}, "Use in conjunction with the above mod", false);
     public final Value<Boolean> Maps = new Value<Boolean>("Maps", new String[] {"Maps"}, "Doesn't render maps", false);
     public final Value<Boolean> BossHealth = new Value<Boolean>("BossHealth", new String[] {"WitherNames"}, "Doesn't render wither names, and other boss health", false);
+    public final Value<Boolean> EnchantingTable = new Value<Boolean>("EnchantingTable", new String[] {"Enchanting"}, "Doesn't render enchanting table books", false);
+    public final Value<Boolean> Beacon = new Value<Boolean>("Beacon", new String[] {"Beacon"}, "Doesn't render beacon beam", false);
     
     public enum NoItemsMode
     {
@@ -176,6 +172,20 @@ public class NoRenderModule extends Module
     {
        if (BossHealth.getValue())
            p_Event.cancel();
+    });
+
+    @EventHandler
+    private Listener<EventRenderBeacon> onRenderBeacon = new Listener<>(p_Event ->
+    {
+        if (Beacon.getValue())
+            p_Event.cancel();
+    });
+
+    @EventHandler
+    private Listener<EventRenderEnchantingTableBook> onEnchantingBook = new Listener<>(p_Event ->
+    {
+        if (EnchantingTable.getValue())
+            p_Event.cancel();
     });
 
 }
