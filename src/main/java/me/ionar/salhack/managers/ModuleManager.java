@@ -82,6 +82,7 @@ public class ModuleManager
         Add(new GhostModule());
         Add(new LiquidInteractModule());
         Add(new MobOwnerModule());
+        Add(new ModifiedFreecamModule());
         Add(new MountBypassModule());
         Add(new NoMiningTrace());
         Add(new NewChunksModule());
