@@ -79,6 +79,7 @@ public class ModuleManager
         Add(new CoordTPExploitModule());
         Add(new CrashExploitModule());
         Add(new EntityDesyncModule());
+        Add(new EntityDesync2Module());
         Add(new GhostModule());
         Add(new LiquidInteractModule());
         Add(new MobOwnerModule());
