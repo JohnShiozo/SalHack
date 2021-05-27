@@ -10,15 +10,14 @@ import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
+import me.ionar.salhack.util.entity.EntityUtil;
+import me.ionar.salhack.util.entity.ItemUtil;
+import me.ionar.salhack.util.entity.PlayerUtil;
 import me.ionar.salhack.util.BlockInteractionHelper;
 import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
 import me.ionar.salhack.util.Pair;
 import me.ionar.salhack.util.Timer;
-import me.ionar.salhack.util.entity.EntityUtil;
-import me.ionar.salhack.util.entity.ItemUtil;
-import me.ionar.salhack.util.entity.PlayerUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockHopper;
@@ -49,6 +48,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class Auto32kModule extends Module
 {

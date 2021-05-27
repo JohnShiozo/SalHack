@@ -9,8 +9,7 @@ import me.ionar.salhack.util.BlockInteractionHelper;
 import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
 import me.ionar.salhack.util.entity.PlayerUtil;
 import me.ionar.salhack.util.MathUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +24,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class SurroundModule extends Module
 {

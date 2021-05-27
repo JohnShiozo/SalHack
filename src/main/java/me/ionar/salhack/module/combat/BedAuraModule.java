@@ -1,6 +1,8 @@
 package me.ionar.salhack.module.combat;
 
 import me.ionar.salhack.events.player.EventPlayerUpdate;
+import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
+import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Module;
@@ -8,14 +10,12 @@ import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.misc.HotbarCacheModule;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
-import net.minecraft.block.Block;
-import net.minecraft.util.EnumHand;
 import me.ionar.salhack.util.Timer;
-import me.ionar.salhack.events.MinecraftEvent.Era;
-import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
 import me.ionar.salhack.util.BlockInteractionHelper;
+import me.ionar.salhack.util.BlockInteractionHelper.PlaceResult;
+import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -24,15 +24,17 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import me.ionar.salhack.util.BlockInteractionHelper.PlaceResult;
-import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import scala.Int;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import scala.Int;
 
 public class BedAuraModule extends Module {
     public final Value<Integer> Radius = new Value<Integer>("Radius", new String[]

@@ -1,11 +1,5 @@
 package me.ionar.salhack.module.dupe;
 
-import java.util.Comparator;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import me.ionar.salhack.events.network.EventNetworkPacketEvent;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.main.SalHack;
@@ -16,8 +10,7 @@ import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.exploit.EntityDesyncModule;
 import me.ionar.salhack.module.exploit.ModifiedFreecamModule;
 import me.ionar.salhack.module.exploit.PacketCancellerModule;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -37,6 +30,15 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import java.util.Comparator;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public final class DupeBotModule extends Module
 {

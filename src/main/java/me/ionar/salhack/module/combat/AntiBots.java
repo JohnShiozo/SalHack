@@ -1,20 +1,22 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
 import me.ionar.salhack.events.network.EventNetworkPacketEvent;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.module.Module;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.play.server.SPacketDestroyEntities;
 import net.minecraft.network.play.server.SPacketSpawnPlayer;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class AntiBots extends Module
 {

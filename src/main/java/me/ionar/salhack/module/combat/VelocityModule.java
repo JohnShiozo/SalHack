@@ -1,7 +1,5 @@
 package me.ionar.salhack.module.combat;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import me.ionar.salhack.events.network.EventNetworkPacketEvent;
 import me.ionar.salhack.events.player.EventPlayerApplyCollision;
 import me.ionar.salhack.events.player.EventPlayerPushOutOfBlocks;
@@ -9,8 +7,7 @@ import me.ionar.salhack.events.player.EventPlayerPushedByWater;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Module.ModuleType;
 import me.ionar.salhack.module.Value;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityFishHook;
@@ -19,6 +16,11 @@ import net.minecraft.network.play.server.SPacketEntityMetadata;
 import net.minecraft.network.play.server.SPacketEntityStatus;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public final class VelocityModule extends Module
 {

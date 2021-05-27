@@ -1,5 +1,8 @@
 package me.ionar.salhack.module.combat;
 
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.GL_LINE_SMOOTH;
+
 import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
 import me.ionar.salhack.events.render.RenderEvent;
@@ -10,8 +13,7 @@ import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
 import me.ionar.salhack.util.Hole;
 import me.ionar.salhack.util.entity.PlayerUtil;
 import me.ionar.salhack.util.render.RenderUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -26,10 +28,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-import java.util.ArrayList;
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL11.GL_LINE_SMOOTH;
+import java.util.ArrayList;
 
 public class HoleFillerModule extends Module
 {

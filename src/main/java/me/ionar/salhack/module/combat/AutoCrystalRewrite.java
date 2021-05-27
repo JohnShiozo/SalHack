@@ -2,14 +2,6 @@ package me.ionar.salhack.module.combat;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.stream.Collectors;
-
 import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.events.entity.EventEntityRemoved;
@@ -21,13 +13,12 @@ import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.misc.AutoMendArmorModule;
-import me.ionar.salhack.util.CrystalUtils;
-import me.ionar.salhack.util.Timer; 
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtil;
 import me.ionar.salhack.util.render.RenderUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+import me.ionar.salhack.util.CrystalUtils;
+import me.ionar.salhack.util.Timer; 
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -51,6 +42,17 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.stream.Collectors;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class AutoCrystalRewrite extends Module
 {

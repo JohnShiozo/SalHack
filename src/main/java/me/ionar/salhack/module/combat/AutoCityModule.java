@@ -1,28 +1,30 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
-import com.mojang.realmsclient.gui.ChatFormatting;
-
-import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
+import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.managers.BlockManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Module.ModuleType;
 import me.ionar.salhack.module.render.CityESPModule;
-import me.ionar.salhack.util.BlockInteractionHelper;
-import me.ionar.salhack.util.Pair;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+import me.ionar.salhack.util.BlockInteractionHelper;
+import me.ionar.salhack.util.Pair;
+
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public class AutoCityModule extends Module
 {

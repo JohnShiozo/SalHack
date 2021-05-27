@@ -1,7 +1,5 @@
 package me.ionar.salhack.module.combat;
 
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
 import me.ionar.salhack.events.player.EventPlayerOnStoppedUsingItem;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.main.SalHackStatic;
@@ -13,8 +11,6 @@ import me.ionar.salhack.util.Hole;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
 import me.ionar.salhack.util.render.ESPUtil;
 
-import baritone.api.BaritoneAPI;
-import baritone.api.pathing.goals.GoalXZ;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +20,12 @@ import net.minecraft.network.play.client.CPacketPlayerTryUseItem;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
+
+import baritone.api.BaritoneAPI;
+import baritone.api.pathing.goals.GoalXZ;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class CrystalPVPBotModule extends Module
 {
