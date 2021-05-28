@@ -13,7 +13,7 @@ import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.network.play.client.CPacketEntityAction.Action;
 
-public final class ElytraFlyModule extends Module {
+public final class ElytraPlusModule extends Module {
     public final Value<Boolean> InstantFly = new Value("InstantFly", new String[]{"InstantFly"}, "Sends the use elytra packet when your off ground", true);
     public final Value<Float> downSpeedBoost = new Value("DownSpeed", new String[]{""}, "", 0.4F, 0.0F, 2.0F, 0.1F);
     public final Value<Float> Speed = new Value("Speed", new String[]{""}, "", 1.2F, 0.0F, 3.0F, 0.1F);
@@ -65,7 +65,7 @@ public final class ElytraFlyModule extends Module {
         }
     }, new Predicate[0]);
 
-    public ElytraFlyModule() {
+    public ElytraPlusModule() {
         super("ElytraFly+", new String[]{"ElytraFly+"}, "Allows you to fly", "NONE", 2415422, Module.ModuleType.MOVEMENT);
     }
 
