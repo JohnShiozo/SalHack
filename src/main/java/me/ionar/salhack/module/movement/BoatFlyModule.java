@@ -31,14 +31,16 @@ public class BoatFlyModule extends Module {
     private EntityBoat target;
     private int teleportID;
     @EventHandler
-    private Listener<PacketEvent.Send> HorseNoFall = new Listener((event) -> {
-        if (event.getpacket() instanceof EntityHorse) {
-            ((EntityHorse)event.getpacket()).onGround = true;
+    private Listener<PacketEvent.Send> HorseNoFall = new Listener<PacketEvent.Send>(event) ->
+    {
+        if (event.getPacket() instanceof EntityHorse) {
+            ((EntityHorse)event.getPacket()).onGround = true;
         }
 
     }, new Predicate[0]);
     @EventHandler
-    private Listener<EventClientTick> OnTick = new Listener((event) -> {
+    private Listener<EventClientTick> OnTick = new Listener<EventClientTick>(event) ->
+    {
         if (Wrapper.GetMC().player != null) {
             if (Wrapper.GetMC().world != null && Wrapper.GetMC().player.getRidingEntity() != null) {
                 if (Wrapper.GetMC().player.getRidingEntity() instanceof EntityBoat) {
@@ -102,7 +104,7 @@ public class BoatFlyModule extends Module {
         }
 
     }
-
+ 
     @SubscribeEvent
     public void onSendPacket(PacketEvent.Send event) {
         if (event.getPacket() instanceof CPacketVehicleMove && Wrapper.GetMC().player.isRiding() && Wrapper.GetMC().player.ticksExisted % (Integer)this.interact.getValue() == 0) {
