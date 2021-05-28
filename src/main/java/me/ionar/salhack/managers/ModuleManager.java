@@ -79,6 +79,7 @@ public class ModuleManager
         Add(new CoordTPExploitModule());
         Add(new CrashExploitModule());
         Add(new EntityDesyncModule());
+        Add(new EntityMineModule());
         Add(new GhostModule());
         Add(new LiquidInteractModule());
         Add(new MobOwnerModule());
@@ -175,6 +176,7 @@ public class ModuleManager
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule());
         Add(new VoidESPModule());
         Add(new WaypointsModule());
         Add(new MapBoundariesModule());
