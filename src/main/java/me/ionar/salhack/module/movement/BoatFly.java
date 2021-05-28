@@ -32,8 +32,8 @@ public class BoatFly extends Module {
     private int teleportID;
     @EventHandler
     private Listener<PacketEvent.Send> HorseNoFall = new Listener((event) -> {
-        if (event.getPacket() instanceof EntityHorse) {
-            ((EntityHorse)event.getPacket()).onGround = true;
+        if (p_Event.getPacket() instanceof EntityHorse) {
+            ((EntityHorse)p_Event.getPacket()).onGround = true;
         }
 
     }, new Predicate[0]);
@@ -105,11 +105,11 @@ public class BoatFly extends Module {
 
     @SubscribeEvent
     public void onSendPacket(PacketEvent.Send event) {
-        if (event.getPacket() instanceof CPacketVehicleMove && Wrapper.GetMC().player.isRiding() && Wrapper.GetMC().player.ticksExisted % (Integer)this.interact.getValue() == 0) {
+        if (p_Event.getPacket() instanceof CPacketVehicleMove && Wrapper.GetMC().player.isRiding() && Wrapper.GetMC().player.ticksExisted % (Integer)this.interact.getValue() == 0) {
             Wrapper.GetMC().playerController.interactWithEntity(Wrapper.GetMC().player, Wrapper.GetMC().player.getRidingEntity(), EnumHand.OFF_HAND);
         }
 
-        if ((event.getPacket() instanceof Rotation || event.getPacket() instanceof CPacketInput) && Wrapper.GetMC().player.isRiding()) {
+        if ((p_Event.getPacket() instanceof Rotation || p_Event.getPacket() instanceof CPacketInput) && Wrapper.GetMC().player.isRiding()) {
             event.cancel();
         }
 
@@ -117,12 +117,12 @@ public class BoatFly extends Module {
 
     @SubscribeEvent
     public void onReceivePacket(PacketEvent.Receive event) {
-        if (event.getPacket() instanceof SPacketMoveVehicle && Wrapper.GetMC().player.isRiding()) {
+        if (p_Event.getPacket() instanceof SPacketMoveVehicle && Wrapper.GetMC().player.isRiding()) {
             event.cancel();
         }
 
-        if (event.getPacket() instanceof SPacketPlayerPosLook) {
-            this.teleportID = ((SPacketPlayerPosLook)event.getPacket()).getTeleportId();
+        if (p_Event.getPacket() instanceof SPacketPlayerPosLook) {
+            this.teleportID = ((SPacketPlayerPosLook)p_Event.getPacket()).getTeleportId();
         }
 
     }
