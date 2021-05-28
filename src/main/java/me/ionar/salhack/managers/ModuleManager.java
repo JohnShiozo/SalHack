@@ -128,6 +128,7 @@ public class ModuleManager
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
         Add(new BlinkModule());
+        Add(new BoatFly());
         Add(new ElytraFlyModule());
         Add(new EntitySpeedModule());
         Add(new EntityControlModule());
