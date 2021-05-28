@@ -21,7 +21,7 @@ public final class ElytraPlusModule extends Module {
     public RotationSpoof m_RotationSpoof = null;
     private Timer InstantFlyTimer = new Timer();
     @EventHandler
-    private Listener<EventPlayerTravel> OnTravel = new Listener<>(p_Event ->
+    private Listener<EventPlayerTravel> OnTravel = new Listener<EventPlayerTravel>(event ->
     {
         if (this.mc.player != null) {
             if (!this.mc.player.isElytraFlying() && (Boolean)this.InstantFly.getValue()) {
@@ -41,12 +41,12 @@ public final class ElytraPlusModule extends Module {
                     this.mc.player.motionY = -0.01D;
                     this.mc.player.motionZ = dir[1];
                     this.mc.timer.tickLength = 50.0F;
-                    p_Event.cancel();
+                    event.cancel();
                 }
             } else {
                 this.mc.player.setVelocity(0.0D, 0.0D, 0.0D);
                 this.mc.timer.tickLength = 50.0F;
-                p_Event.cancel();
+                event.cancel();
                 double[] dirx = MathUtil.directionSpeed((double)(Float)this.Speed.getValue());
                 if (this.mc.player.movementInput.moveStrafe != 0.0F || this.mc.player.movementInput.moveForward != 0.0F) {
                     this.mc.player.motionX = dirx[0];
