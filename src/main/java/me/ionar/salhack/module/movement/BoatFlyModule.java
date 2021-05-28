@@ -20,20 +20,20 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class BoatFly extends Module {
+public class BoatFlyModule extends Module {
     public final Value<Double> speed = new Value("Speed", new String[]{""}, "", 3.0D, 1.0D, 30.0D, 1.0D);
     public final Value<Double> verticalSpeed = new Value("VerticalSpeed", new String[]{""}, "", 3.0D, 1.0D, 10.0D, 1.0D);
     public final Value<Boolean> noKick = new Value("No-Kick", new String[]{""}, "", true);
     public final Value<Boolean> packet = new Value("Packet", new String[]{""}, "", true);
     public final Value<Integer> packets = new Value("Packets", new String[]{""}, "", 3, 1, 5, 1);
     public Value<Integer> interact = new Value("Delay", new String[]{""}, "", 2, 1, 20, 1);
-    public static BoatFly INSTANCE;
+    public static BoatFlyModule INSTANCE;
     private EntityBoat target;
     private int teleportID;
     @EventHandler
     private Listener<PacketEvent.Send> HorseNoFall = new Listener((event) -> {
-        if (event.getPacket() instanceof EntityHorse) {
-            ((EntityHorse)event.getPacket()).onGround = true;
+        if (event.getpacket() instanceof EntityHorse) {
+            ((EntityHorse)event.getpacket()).onGround = true;
         }
 
     }, new Predicate[0]);
@@ -81,7 +81,7 @@ public class BoatFly extends Module {
         }
     }, new Predicate[0]);
 
-    public BoatFly() {
+    public BoatFlyModule() {
         super("BoatFly", new String[]{"BoatFly"}, "Allows you to fly around in a boat", "NONE", 2400219, Module.ModuleType.MOVEMENT);
     }
 
