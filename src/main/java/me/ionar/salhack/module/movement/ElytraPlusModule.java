@@ -28,7 +28,6 @@ public final class ElytraPlusModule extends Module {
                 if (this.mc.player.onGround) {
                     this.mc.player.jump();
                 }
-                p_event
                 if (this.InstantFlyTimer.passed(500.0D)) {
                     this.InstantFlyTimer.reset();
                     this.mc.player.connection.sendPacket(new CPacketEntityAction(this.mc.player, Action.START_FALL_FLYING));
