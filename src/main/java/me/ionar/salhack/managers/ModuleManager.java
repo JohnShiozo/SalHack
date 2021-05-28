@@ -124,10 +124,11 @@ public class ModuleManager
         Add(new VisualRangeModule());
         
         /// Movement
-        Add(new OldAnchorModule());
+        Add(new AnchorModule());
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
         Add(new BlinkModule());
+        Add(new BoatFlyModule());
         Add(new ElytraFlyModule());
         Add(new ElytraPlusModule());
         Add(new EntitySpeedModule());
