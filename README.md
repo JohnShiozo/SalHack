@@ -1,8 +1,8 @@
 [![Sal Hack logo](/src/main/resources/assets/salhack/imgs/SalHackWatermark.png)](https://github.com/ionar2/salhack/)
 
-[Downloads](https://img.shields.io/github/downloads/JohnShiozo/SalHack/total?style=for-the-badge)
+<img src="https://img.shields.io/github/downloads/JohnShiozo/SalHack/total?style=for-the-badge" /><br>
 
-[Gradle Build](https://img.shields.io/github/workflow/status/JohnShiozo/SalHack/Gradle%20Build/dev?style=for-the-badge)
+<img src="https://img.shields.io/github/workflow/status/JohnShiozo/SalHack/Gradle%20Build/dev?style=for-the-badge" /><br>
 
 [![GitHub contributors](https://img.shields.io/github/contributors/ionar2/salhack.svg)](https://github.com/ionar2/salhack/graphs/contributors/)
 
