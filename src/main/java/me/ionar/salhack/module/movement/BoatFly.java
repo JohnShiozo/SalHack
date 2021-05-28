@@ -1,6 +1,8 @@
 package me.ionar.salhack.module.movement;
 
 import java.util.function.Predicate;
+import me.ionar.salhack.events.network.EventNetworkPacketEvent;
+import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.events.packet.PacketEvent;
 import me.ionar.salhack.main.Wrapper;
