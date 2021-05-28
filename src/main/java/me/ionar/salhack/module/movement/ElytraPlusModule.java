@@ -21,14 +21,14 @@ public final class ElytraPlusModule extends Module {
     public RotationSpoof m_RotationSpoof = null;
     private Timer InstantFlyTimer = new Timer();
     @EventHandler
-    private Listener<EventPlayerTravel> OnTravel = new Listener((p_Event) -> {
+    private Listener<EventPlayerTravel> OnTravel = new Listener<>((p_Event) -> {
         if (this.mc.player != null) {
             if (!this.mc.player.isElytraFlying() && (Boolean)this.InstantFly.getValue()) {
                 this.mc.timer.tickLength = 300.0F;
                 if (this.mc.player.onGround) {
                     this.mc.player.jump();
                 }
-
+                p_event
                 if (this.InstantFlyTimer.passed(500.0D)) {
                     this.InstantFlyTimer.reset();
                     this.mc.player.connection.sendPacket(new CPacketEntityAction(this.mc.player, Action.START_FALL_FLYING));
