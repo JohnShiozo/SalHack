@@ -124,12 +124,12 @@ public class ModuleManager
         Add(new VisualRangeModule());
         
         /// Movement
-        Add(new Anchor());
-        Add(new AnchorModule());
+        Add(new OldAnchorModule());
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
         Add(new BlinkModule());
         Add(new ElytraFlyModule());
+        Add(new ElytraPlusModule());
         Add(new EntitySpeedModule());
         Add(new EntityControlModule());
         Add(new FastFallModule());
@@ -139,6 +139,7 @@ public class ModuleManager
         Add(new NoFallModule());
         Add(new NoRotateModule());
         Add(new NoSlowModule());
+        // Add(new OldAnchorModule());
         Add(new ParkourModule());
         Add(new JesusModule());
         Add(new SafeWalkModule());

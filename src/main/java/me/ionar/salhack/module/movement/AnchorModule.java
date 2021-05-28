@@ -1,171 +1,114 @@
 package me.ionar.salhack.module.movement;
 
+import java.util.function.Predicate;
 import me.ionar.salhack.events.client.EventClientTick;
-import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
+import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.init.Blocks;
-import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import me.ionar.salhack.module.movement.SpeedModule;
 
-import me.zero.alpine.fork.listener.EventHandler;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
-public class AnchorModule extends Module {
-
-    /*
-     * Author LeonLeonPotato over many, many days (I suck at java lol)
-     */
+public final class AnchorModule extends Module {
+    public final Value<Boolean> Pull = new Value("Pull", new String[]{""}, "", true);
+    int holeblocks;
+    public static boolean AnchorING;
+    private Vec3d Center;
+    @EventHandler
+    private Listener<EventClientTick> OnTick;
 
     public AnchorModule() {
-        super("Anchor", new String[]{"anchor"}, "stops all movement when over a hole", "NONE", 0xDB2468,
-                ModuleType.MOVEMENT);
-    }
-
-    public final Value<Boolean> PitchMode = new Value<Boolean>("pitchMode", new String[]{"pitchMode"},
-            "activates only when your pitch is below a value", true);
-    public final Value<Float> pitch = new Value<Float>("pitch", new String[]{"pitch"}, "the pitch to activate at",
-            75f, 0.0f, 90f, 1f);
-    public final Value<Boolean> pull = new Value<Boolean>("pull", new String[]{"pull"},
-            "pulls you into a hole, like reverseStep", false);
-    public final Value<Float> pullSpeed = new Value<Float>("pullSpeed", new String[]{"pull"},
-            "pulls you into a hole, like reverseStep", 2.5f, 0f, 5f, 0.5f);
-    public final Value<centermodes> CenterMode = new Value<centermodes>("Center", new String[]{"Center"},
-            "Moves you to center of block", centermodes.NCP);
-    public final Value<Integer> height = new Value<Integer>("height", new String[]{"height"},
-            "the height which you are at from a hole which anchor will activate", 10, 1, 10, 1);
-    public final Value<Boolean> toggleInHole = new Value<Boolean>("ToggleInHole", new String[]{"toggleAfter"},
-            "toggles after", false);
-    public final Value<Boolean> toggleSpeed = new Value<Boolean>("ToggleSpeed", new String[]{"toggleSpeed"},
-            "toggles speed", false);
-
-    public enum centermodes {
-        Teleport, NCP, None,
-    }
-
-    /*
-     * I planned to make toggleStrafe including other clients strafes by typing the
-     * keybind... yeah idk how to make it public enum strafes { single, multi }
-     */
-    @EventHandler
-    private final Listener<EventClientTick> EventPlayerTick = new Listener<>(p_Event -> {
-        Vec3d Center = Vec3d.ZERO;
-        Vec3d SurroundCenter = Vec3d.ZERO;
-        boolean Anchoring = false;
-        Robot robot = null;
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        robot.keyPress(KeyEvent.VK_A);
-
-        if (mc.player == null || mc.world == null) {
-            return;
-        }
-
-        if (PitchMode.getValue() && mc.player.rotationPitch <= 90 - pitch.getValue()) {
-            return;
-        }
-
-        if (mc.player.capabilities.isFlying || ModuleManager.Get().GetMod(FlightModule.class).isEnabled()
-                || mc.player.isElytraFlying()) {
-            return;
-        }
-
-        if (Center == Vec3d.ZERO) {
-            Center = GetCenter(mc.player.posX, mc.player.posY, mc.player.posZ);
-
-            // check if we are above a surrounded hole
-            for (int a = 0; a < height.getValue(); a++) {
-                if (IsSurrounded(getPlayerPos().down(a))) {
-                    for (int b = 0; b < a; b++) {
-                        if (mc.world.getBlockState(getPlayerPos().down(b)).getBlock() != Blocks.AIR) {
-                            return;
-                        }
-                    }
-                    Anchoring = true;
-                    SurroundCenter = Center;
-                }
-            }
-
-            // Pull
-            if (Anchoring && pull.getValue()) {
-                mc.player.motionY = pullSpeed.getValue().doubleValue() * -1;
-            }
-
-            // NCP centering
-            if (Anchoring && CenterMode.getValue() == centermodes.NCP) {
-                double l_XDiff = Math.abs((SurroundCenter.x) - mc.player.posX);
-                double l_ZDiff = Math.abs((SurroundCenter.z) - mc.player.posZ);
-
-                if (l_XDiff <= 0.1 && l_ZDiff <= 0.1) {
-                    Center = Vec3d.ZERO;
-                    mc.player.motionX = 0;
-                    mc.player.motionZ = 0;
+        super("Anchor", new String[]{"Anchor"}, "Stops all movement if player is above a hole", "NONE", 12723419, Module.ModuleType.MOVEMENT);
+        this.Center = Vec3d.ZERO;
+        this.OnTick = new Listener((event) -> {
+            if (!this.isBlockHole(this.getPlayerPos().down(1)) && !this.isBlockHole(this.getPlayerPos().down(2)) && !this.isBlockHole(this.getPlayerPos().down(3)) && !this.isBlockHole(this.getPlayerPos().down(4))) {
+                AnchorING = false;
+            } else {
+                AnchorING = true;
+                if (!(Boolean)this.Pull.getValue()) {
+                    this.mc.player.motionX = 0.0D;
+                    this.mc.player.motionZ = 0.0D;
                 } else {
-                    double l_MotionX = (SurroundCenter.x) - mc.player.posX;
-                    double l_MotionZ = (SurroundCenter.z) - mc.player.posZ;
-
-                    mc.player.motionX = l_MotionX / 2;
-                    mc.player.motionZ = l_MotionZ / 2;
+                    this.Center = this.GetCenter(this.mc.player.posX, this.mc.player.posY, this.mc.player.posZ);
+                    double XDiff = Math.abs(this.Center.x - this.mc.player.posX);
+                    double ZDiff = Math.abs(this.Center.z - this.mc.player.posZ);
+                    if (XDiff <= 0.1D && ZDiff <= 0.1D) {
+                        this.Center = Vec3d.ZERO;
+                    } else {
+                        double MotionX = this.Center.x - this.mc.player.posX;
+                        double MotionZ = this.Center.z - this.mc.player.posZ;
+                        this.mc.player.motionX = MotionX / 2.0D;
+                        this.mc.player.motionZ = MotionZ / 2.0D;
+                    }
                 }
             }
 
-            // Teleport centering
-            if (Anchoring && CenterMode.getValue() == centermodes.Teleport) {
-                mc.player.connection.sendPacket(
-                        new CPacketPlayer.Position(SurroundCenter.x, mc.player.posY, SurroundCenter.z, false));
-                mc.player.setPosition(SurroundCenter.x, mc.player.posY, SurroundCenter.z);
-                mc.player.motionX = 0;
-                mc.player.motionZ = 0;
-            }
+        }, new Predicate[0]);
+    }
 
-            if (Anchoring && CenterMode.getValue() == centermodes.None) {
-                mc.player.motionX = 0;
-                mc.player.motionZ = 0;
-            }
-
-            if (IsSurrounded(getPlayerPos()) && toggleInHole.getValue() && this.isEnabled()) {
-                this.toggle();
-            }
-
-            if (toggleSpeed.getValue() && Anchoring && ModuleManager.Get().GetMod(SpeedModule.class).isEnabled()) {
-                ModuleManager.Get().GetMod(SpeedModule.class).toggle();
-            }
+    public boolean isBlockHole(BlockPos blockpos) {
+        this.holeblocks = 0;
+        if (this.mc.world.getBlockState(blockpos.add(0, 3, 0)).getBlock() == Blocks.AIR) {
+            ++this.holeblocks;
         }
-    });
 
-    //////////////////////////////////////////////////////////////// METHODS
-    //////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////////////////////////////////////
+        if (this.mc.world.getBlockState(blockpos.add(0, 2, 0)).getBlock() == Blocks.AIR) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(0, 1, 0)).getBlock() == Blocks.AIR) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(0, 0, 0)).getBlock() == Blocks.AIR) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(0, -1, 0)).getBlock() == Blocks.OBSIDIAN || this.mc.world.getBlockState(blockpos.add(0, -1, 0)).getBlock() == Blocks.BEDROCK) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(1, 0, 0)).getBlock() == Blocks.OBSIDIAN || this.mc.world.getBlockState(blockpos.add(1, 0, 0)).getBlock() == Blocks.BEDROCK) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(-1, 0, 0)).getBlock() == Blocks.OBSIDIAN || this.mc.world.getBlockState(blockpos.add(-1, 0, 0)).getBlock() == Blocks.BEDROCK) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(0, 0, 1)).getBlock() == Blocks.OBSIDIAN || this.mc.world.getBlockState(blockpos.add(0, 0, 1)).getBlock() == Blocks.BEDROCK) {
+            ++this.holeblocks;
+        }
+
+        if (this.mc.world.getBlockState(blockpos.add(0, 0, -1)).getBlock() == Blocks.OBSIDIAN || this.mc.world.getBlockState(blockpos.add(0, 0, -1)).getBlock() == Blocks.BEDROCK) {
+            ++this.holeblocks;
+        }
+
+        return this.holeblocks >= 9;
+    }
 
     public Vec3d GetCenter(double posX, double posY, double posZ) {
         double x = Math.floor(posX) + 0.5D;
         double y = Math.floor(posY);
         double z = Math.floor(posZ) + 0.5D;
-
         return new Vec3d(x, y, z);
     }
 
-    public boolean IsSurrounded(BlockPos pos) {
-        if (mc.world.getBlockState(pos).getBlock() == Blocks.AIR
-                && mc.world.getBlockState(pos.down()).getBlock() != Blocks.AIR
-                && mc.world.getBlockState(pos.west()).getBlock() != Blocks.AIR
-                && mc.world.getBlockState(pos.north()).getBlock() != Blocks.AIR
-                && mc.world.getBlockState(pos.east()).getBlock() != Blocks.AIR
-                && mc.world.getBlockState(pos.south()).getBlock() != Blocks.AIR) {
-            return true;
-        } else {
-            return false;
+    public void onDisable() {
+        super.onDisable();
+        AnchorING = false;
+        this.holeblocks = 0;
+    }
+
+    public void onEnable() {
+        super.onEnable();
+        if (this.mc.player == null) {
+            this.toggle();
         }
     }
 
-    private BlockPos getPlayerPos() {
-        return new BlockPos(Math.floor(mc.player.posX), Math.floor(mc.player.posY), Math.floor(mc.player.posZ));
+    public BlockPos getPlayerPos() {
+        return new BlockPos(Math.floor(this.mc.player.posX), Math.floor(this.mc.player.posY), Math.floor(this.mc.player.posZ));
     }
 }
