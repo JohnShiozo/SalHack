@@ -14,10 +14,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
-import me.zero.alpine.listener.EventHandler;
-import me.zero.alpine.listener.Listener;
-
-import static me.ionar.salhack.main.Wrapper.mc;
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 //thanks ciruu
 
