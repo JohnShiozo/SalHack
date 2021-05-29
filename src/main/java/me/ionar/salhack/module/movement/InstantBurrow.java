@@ -17,11 +17,12 @@ import net.minecraft.util.math.BlockPos;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 
-//thanks ciruu 
+//thanks ciruu
 
 public final class InstantBurrow extends Module {
 
-    public final Value<Float> offset = new Value<Float>("Offset", new String[] {"Offset"}, 7.0F, -20.0F, 20.0F);
+    public final Value<Float> Speed = new Value<Float>("Offset", new String[]
+    { "" }, "Offset to use", 7.0f, 0.0f, 20.0F, 7.0f);
     public final Value<Boolean> rotate = new Value<Boolean>("Rotate", new String[] {""}, false);
     public final Value<Boolean> sneak = new Value<Boolean>("sneak", new String[] {""}, false);
 
