@@ -138,7 +138,6 @@ public class ModuleManager
         Add(new FlightModule());
         Add(new GlideModule());
         Add(new HorseJumpModule());
-        Add(new InstantBurrow());
         Add(new NoFallModule());
         Add(new NoRotateModule());
         Add(new NoSlowModule());
