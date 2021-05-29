@@ -3,6 +3,7 @@ package me.ionar.salhack.module.movement;
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
+import me.ionar.salhack.module.ValueListeners;
 import me.ionar.salhack.main.Wrapper;
 
 import net.minecraft.block.BlockObsidian;
