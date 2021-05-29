@@ -17,13 +17,13 @@ import net.minecraft.util.math.BlockPos;
 import me.zero.alpine.fork.listener.EventHandler;
 import me.zero.alpine.fork.listener.Listener;
 
-//thanks ciruu
+//thanks ciruu 
 
 public final class InstantBurrow extends Module {
 
-    public final Value<Boolean> rotate = new Value<Boolean>("Rotate", "Rotate", this, false);
-    public final Value<Float> offset = new Value<Float>("Offset", "Offset", this, 7.0F, -20.0F, 20.0F);
-    public final Value<Boolean> sneak = new Value<Boolean>("Sneak", "Sneak", this, false);
+    public final Value<Float> offset = new Value<Float>("Offset", new String[] {"Offset"}, 7.0F, -20.0F, 20.0F);
+    public final Value<Boolean> rotate = new Value<Boolean>("Rotate", new String[] {""}, false);
+    public final Value<Boolean> sneak = new Value<Boolean>("sneak", new String[] {""}, false);
 
     private BlockPos originalPos;
     private int oldSlot = -1;
