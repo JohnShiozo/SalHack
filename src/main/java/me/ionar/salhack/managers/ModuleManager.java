@@ -61,6 +61,7 @@ public class ModuleManager
         Add(new AutoTrap());
         Add(new AutoTrapFeet());
         Add(new AutoWebModule());
+        Add(new BedAuraModule());
         Add(new BowSpamModule());
         Add(new CriticalsModule());
         // Add(new CrystalPVPBotModule());
@@ -78,9 +79,11 @@ public class ModuleManager
         Add(new CoordTPExploitModule());
         Add(new CrashExploitModule());
         Add(new EntityDesyncModule());
+        Add(new EntityMineModule());
         Add(new GhostModule());
         Add(new LiquidInteractModule());
         Add(new MobOwnerModule());
+        Add(new ModifiedFreecamModule());
         Add(new MountBypassModule());
         Add(new NoMiningTrace());
         Add(new NewChunksModule());
@@ -88,6 +91,7 @@ public class ModuleManager
         Add(new PacketFlyModule());
         Add(new PortalGodModeModule());
         Add(new SwingModule());
+        Add(new XCarryModule());
 
         /// Misc
         Add(new AntiAFKModule());
@@ -119,14 +123,15 @@ public class ModuleManager
         Add(new StopWatchModule());
         Add(new TotemPopNotifierModule());
         Add(new VisualRangeModule());
-        Add(new XCarryModule());
         
         /// Movement
         Add(new AnchorModule());
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
         Add(new BlinkModule());
+        Add(new BoatFlyModule());
         Add(new ElytraFlyModule());
+        Add(new ElytraPlusModule());
         Add(new EntitySpeedModule());
         Add(new EntityControlModule());
         Add(new FastFallModule());
@@ -136,6 +141,7 @@ public class ModuleManager
         Add(new NoFallModule());
         Add(new NoRotateModule());
         Add(new NoSlowModule());
+        // Add(new OldAnchorModule());
         Add(new ParkourModule());
         Add(new JesusModule());
         Add(new SafeWalkModule());
@@ -170,6 +176,7 @@ public class ModuleManager
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule());
         Add(new VoidESPModule());
         Add(new WaypointsModule());
         Add(new MapBoundariesModule());
@@ -209,6 +216,7 @@ public class ModuleManager
 
         /// Dupe
         Add(new AutoDuperModule());
+        Add(new DupeBotModule());
         Add(new DupeFreecam());
         
         LoadExternalModules();

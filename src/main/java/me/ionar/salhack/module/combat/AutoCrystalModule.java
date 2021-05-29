@@ -24,16 +24,15 @@ import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
+import me.ionar.salhack.util.entity.EntityUtil;
+import me.ionar.salhack.util.entity.PlayerUtil;
+import me.ionar.salhack.util.render.RenderUtil;
 import me.ionar.salhack.module.misc.AutoMendArmorModule;
 import me.ionar.salhack.util.BlockInteractionHelper;
 import me.ionar.salhack.util.BlockInteractionHelper.ValidResult;
 import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.RotationSpoof;
-import me.ionar.salhack.util.entity.EntityUtil;
-import me.ionar.salhack.util.entity.PlayerUtil;
-import me.ionar.salhack.util.render.RenderUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.culling.ICamera;
@@ -61,6 +60,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class AutoCrystalModule extends Module
 {

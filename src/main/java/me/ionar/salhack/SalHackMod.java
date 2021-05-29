@@ -12,10 +12,18 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = "salhack", name = "SalHack", version = SalHackMod.VERSION)
+@Mod(
+    modid = SalHackMod.MODID,
+    name = SalHackMod.NAME,
+    version = SalHackMod.VERSION,
+    clientSideOnly = true,
+    acceptableRemoteVersions="*",
+    acceptedMinecraftVersions="[1.12.2]"
+)
 public final class SalHackMod
 {
     public static final String NAME = "SalHack";
+    public static final String MODID = "salhack";
     public static final String VERSION = "2.07";
 
     public static final Logger log = LogManager.getLogger("sal");

@@ -1,12 +1,8 @@
 package me.ionar.salhack.module.dupe;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.module.Module;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
@@ -17,6 +13,13 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.event.RenderLivingEvent.Pre;
 import net.minecraftforge.event.world.WorldEvent.Load;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 
 public final class DupeFreecam extends Module {
     private static Vec3d pos;

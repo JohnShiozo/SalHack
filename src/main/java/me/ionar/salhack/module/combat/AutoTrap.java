@@ -1,11 +1,5 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import me.ionar.salhack.events.MinecraftEvent.Era;
 import me.ionar.salhack.events.player.EventPlayerMotionUpdate;
 import me.ionar.salhack.main.SalHack;
@@ -14,8 +8,7 @@ import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.BlockInteractionHelper;
 import me.ionar.salhack.util.SalUtil;
 import me.ionar.salhack.util.entity.PlayerUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEnderChest;
 import net.minecraft.block.BlockObsidian;
@@ -32,6 +25,15 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public final class AutoTrap extends Module
 {

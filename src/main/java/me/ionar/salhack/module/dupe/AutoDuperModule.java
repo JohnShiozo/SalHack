@@ -3,7 +3,7 @@ package me.ionar.salhack.module.dupe;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.module.*;
 import me.ionar.salhack.util.Timer;
-import me.zero.alpine.fork.listener.*;
+
 import net.minecraft.block.*;
 import net.minecraft.client.gui.inventory.GuiScreenHorseInventory;
 import net.minecraft.entity.*;
@@ -14,6 +14,9 @@ import net.minecraft.item.*;
 import net.minecraft.network.play.client.CPacketUseEntity;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+
+import me.zero.alpine.fork.listener.*;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.Comparator;

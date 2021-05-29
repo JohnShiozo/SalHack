@@ -1,18 +1,20 @@
 package me.ionar.salhack.module.combat;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.gui.SalGuiScreen;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.entity.PlayerUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.Item;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public final class OffhandModule extends Module
 {

@@ -1,14 +1,16 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.Iterator;
-import java.util.List;
 import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.render.ChatColor;
+
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class AutoLavaModule extends Module {
     public static final Value<Integer> range = new Value("Range", new String[]{"RNG"}, "Range of block placement.", 5, 0, 10, 1);

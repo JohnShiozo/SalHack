@@ -1,9 +1,5 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.Comparator;
-
-import javax.annotation.Nullable;
-
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.managers.ModuleManager;
@@ -15,8 +11,7 @@ import me.ionar.salhack.util.RotationSpoof;
 import me.ionar.salhack.util.Timer;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.ItemUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.AbstractChestHorse;
@@ -27,6 +22,13 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemSword;
 import net.minecraft.network.play.client.CPacketUseEntity;
 import net.minecraft.util.EnumHand;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
+
+import java.util.Comparator;
+
+import javax.annotation.Nullable;
 
 public class KillAuraModule extends Module
 {

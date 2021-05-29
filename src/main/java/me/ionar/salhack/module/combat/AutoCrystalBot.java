@@ -1,12 +1,12 @@
 package me.ionar.salhack.module.combat;
 
-import me.ionar.salhack.events.MCEventBot;
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.events.entity.EventEntityRemoved;
 import me.ionar.salhack.events.network.EventServerPacket;
 import me.ionar.salhack.events.player.EventPlayerMotionUpdateBot;
 import me.ionar.salhack.events.player.EventPlayerUpdate;
 import me.ionar.salhack.events.render.RenderEvent;
+import me.ionar.salhack.events.MCEventBot;
 import me.ionar.salhack.main.SalHackStatic;
 import me.ionar.salhack.main.Wrapper;
 import me.ionar.salhack.managers.FriendManager;
@@ -15,12 +15,10 @@ import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.ValueListeners;
 import me.ionar.salhack.util.CrystalUtils;
 import me.ionar.salhack.util.Timer;
+import me.ionar.salhack.util.render.RenderUtilBot;
+import me.ionar.salhack.util.CrystalUtils2;
 import me.ionar.salhack.util.entity.EntityUtil;
 import me.ionar.salhack.util.entity.PlayerUtilBot;
-import me.ionar.salhack.util.render.RenderUtilBot;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
-import me.ionar.salhack.util.CrystalUtils2; // mark
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -51,6 +49,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 import static org.lwjgl.opengl.GL11.*;
 

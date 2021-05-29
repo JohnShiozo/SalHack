@@ -7,7 +7,7 @@
       "mcversion": "${version_minecraft}",
       "url": "https://salhack.com",
       "updateUrl": "https://salhack.com",
-      "authorList": ["ionar"],
+      "authorList": ["joaoshiozo"],
       "credits": "ionar",
       "logoFile": "assets/salhack/imgs/SalHackWatermark.png",
       "screenshots": [],

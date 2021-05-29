@@ -1,16 +1,12 @@
 package me.ionar.salhack.module.combat;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.function.Predicate;
 import me.ionar.salhack.events.client.EventClientTick;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.util.BlockInteractionHelper;
 import me.ionar.salhack.util.entity.EntityUtil;
-import me.zero.alpine.fork.listener.EventHandler;
-import me.zero.alpine.fork.listener.Listener;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWeb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +20,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Predicate;
+
+import me.zero.alpine.fork.listener.EventHandler;
+import me.zero.alpine.fork.listener.Listener;
 
 public class AutoWebModule extends Module {
     public static final Value<Boolean> rotate = new Value("Rotate", new String[]{"R"}, "Rotate when placing.", true);
