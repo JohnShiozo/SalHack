@@ -21,10 +21,9 @@ import me.zero.alpine.fork.listener.Listener;
 
 public final class InstantBurrow extends Module {
 
-    public final Value<Float> Speed = new Value<Float>("Offset", new String[]
-    { "" }, "Offset to use", 7.0f, 0.0f, 20.0F, 7.0f);
-    public final Value<Boolean> rotate = new Value<Boolean>("Rotate", false);
-    public final Value<Boolean> sneak = new Value<Boolean>("sneak", false);
+    public final Value<Float> Offset = new Value("Speed", new String[]{""}, "", 7.0F, -20.0F, 20.0F);
+    public final Value<Boolean> rotate = new Value("Rotate", new String[]{""}, "", false);
+    public final Value<Boolean> sneak = new Value("Sneak", new String[]{""}, "", false);
 
     private BlockPos originalPos;
     private int oldSlot = -1;
