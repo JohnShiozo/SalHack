@@ -6,7 +6,8 @@ import me.ionar.salhack.events.packet.PacketSendEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
  
-public class AirJumpModule extends Module {
+public class AirJumpModule extends Module
+{
 
 	public AirJumpModule()
     {
@@ -20,5 +21,5 @@ public class AirJumpModule extends Module {
 		if (mc.player != null) {
 			mc.player.onGround = mc.player.ticksExisted % 2 == 0;
 		}
-	}
+	});
 }

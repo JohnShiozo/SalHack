@@ -42,14 +42,11 @@ extends MinecraftEvent {
             super(packet);
         }
     }
-    public PacketSendEvent(Packet<?> packet) {
-		this.packet = packet;
-	}
 
-	public Packet<?> getPacket() {
-		return packet;
-	}
-
-	public void setPacket(Packet<?> packet) {
-		this.packet = packet;
+    public static class setPacket
+    extends PacketEvent {
+        public setPacket(Packet packet) {
+            super(packet);
+        }
+    }
 }
