@@ -1,5 +1,6 @@
 package me.ionar.salhack.events.packet;
 
+import me.ionar.salhack.events.MinecraftEvent;
 import net.minecraft.network.Packet;
 
 public class PacketSendEvent extends MinecraftEvent {
