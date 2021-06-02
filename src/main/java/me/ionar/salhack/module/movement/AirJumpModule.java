@@ -1,7 +1,7 @@
 package me.ionar.salhack.module.movement;
 
 import me.ionar.salhack.module.Module;
-import me.ionar.salhack.events.packet.PacketEvent;
+import me.ionar.salhack.events.packet.PacketSendEvent;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -15,7 +15,7 @@ public class AirJumpModule extends Module {
     }
 
 	@SubscribeEvent
-	public void onSendPacket(PacketEvent event) {
+	public void onSendPacket(PacketSendEvent event) {
 		if (mc.player != null) {
 			mc.player.onGround = mc.player.ticksExisted % 2 == 0;
 		}
