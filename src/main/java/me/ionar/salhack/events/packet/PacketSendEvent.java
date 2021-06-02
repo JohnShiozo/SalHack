@@ -1,11 +1,8 @@
 package me.ionar.salhack.events.packet;
 
 import net.minecraft.network.Packet;
-import net.minecraftforge.fml.common.eventhandler.Cancelable;
-import net.minecraftforge.fml.common.eventhandler.Event;
 
-@Cancelable
-public class PacketSendEvent extends Event {
+public class PacketSendEvent extends MinecraftEvent {
 	public Packet<?> packet;
 
 	public PacketSendEvent(Packet<?> packet) {
