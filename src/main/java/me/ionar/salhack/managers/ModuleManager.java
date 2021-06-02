@@ -125,6 +125,7 @@ public class ModuleManager
         Add(new VisualRangeModule());
         
         /// Movement
+        Add(new AirJumpModule());
         Add(new AnchorModule());
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
