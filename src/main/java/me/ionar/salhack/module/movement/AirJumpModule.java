@@ -5,7 +5,7 @@ import me.ionar.salhack.events.packet.PacketSendEvent;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-
+ 
 public class AirJumpModule extends Module {
 
 	public AirJumpModule()
@@ -14,11 +14,11 @@ public class AirJumpModule extends Module {
                 { "AirJump" }, "Allows you to jump while in air.", "NONE", -1, ModuleType.MOVEMENT);
     }
 
-	@SubscribeEvent
-	public void onSendPacket(PacketSendEvent event) {
+	@EventHandler
+    private Listener<PacketEvent> OnSendPacket = new Listener<>(p_Event ->
+    {
 		if (mc.player != null) {
 			mc.player.onGround = mc.player.ticksExisted % 2 == 0;
 		}
 	}
-
 }
