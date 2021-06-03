@@ -17,8 +17,8 @@ public AirJumpModule()
     @EventHandler
     private Listener<PacketEvent> OnSendPacket = new Listener<>(p_Event ->
     {
-		if (mc.player != null) {
-			mc.player.onGround = mc.player.ticksExisted % 2 == 0;
+	if (mc.player != null) {
+	mc.player.onGround = mc.player.ticksExisted % 2 == 0;
 		}
 	});
 }
