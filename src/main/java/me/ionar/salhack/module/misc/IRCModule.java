@@ -1,4 +1,4 @@
-package me.ionar.salhack.module.chat;
+package me.ionar.salhack.module.misc;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import java.util.Iterator;
@@ -54,7 +54,7 @@ public class IRCModule extends Module {
         return returnValue;
     }
 
-    public IRC() {
+    public IRCModule() {
         super("IRC", new String[]{"IRC"}, "Allows you to talk to other ZoeHack users", "NONE", 14361680, Module.ModuleType.MISC);
     }
 
