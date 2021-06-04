@@ -68,7 +68,7 @@ public class IRCModule extends Module {
                         SalHack.irc.connect();
                         SalHack.SendMessage(TextFormatting.BLUE + "[IRC] " + TextFormatting.GREEN + "Connected to IRC use @ + message to chat");
                         SalHack.SendMessage(TextFormatting.BLUE + "[IRC] " + TextFormatting.GOLD + SalHack.irc.getUsers("#zoe-hack").length + " Players online");
-                        IRC.shouldUpdate = true;
+                        IRCModule.shouldUpdate = true;
                     } catch (Exception var2) {
                     }
 
@@ -94,7 +94,7 @@ public class IRCModule extends Module {
     }
 
     static {
-        Color = new Value("Color:", new String[]{"BM"}, "Color to use", IRC.Colors.Aqua);
+        Color = new Value("Color:", new String[]{"BM"}, "Color to use", IRCModule.Colors.Aqua);
         shouldUpdate = false;
     }
 
