@@ -1,4 +1,4 @@
-package me.ionar.salhack;
+package me.ionar.salhack.util;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import io.netty.buffer.Unpooled;
