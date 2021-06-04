@@ -15,7 +15,7 @@ import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.util.text.TextFormatting;
 
 public class IRCModule extends Module {
-    public static final Value<IRC.Colors> Color;
+    public static final Value<IRCModule.Colors> Color;
     public static boolean shouldUpdate;
     @EventHandler
     private final Listener<EventClientTick> OnTick = new Listener(Event -> {
@@ -37,7 +37,7 @@ public class IRCModule extends Module {
 
     public static String getChatColor() {
         String returnValue;
-        switch((IRC.Colors)Color.getValue()) {
+        switch((IRCModule.Colors)Color.getValue()) {
         case Yellow:
             returnValue = ChatFormatting.YELLOW + "";
             break;
