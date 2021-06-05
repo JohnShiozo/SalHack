@@ -2,13 +2,13 @@ package me.ionar.salhack.irc;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import java.io.IOException;
-import me.ionar.salhack.CommandUtil;
+import me.ionar.salhack.util.CommandUtil;
 import me.ionar.salhack.irc.pircBot.IrcException;
 import me.ionar.salhack.irc.pircBot.NickAlreadyInUseException;
 import me.ionar.salhack.irc.pircBot.PircBot;
 import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.main.Wrapper;
-import me.ionar.salhack.module.chat.IRC;
+import me.ionar.salhack.module.misc.IRCModule;
 import net.minecraft.util.text.TextFormatting;
 
 public class IrcManager extends PircBot {
