@@ -42,7 +42,7 @@ public class IrcManager extends PircBot {
                 SalHack.SendMessage(ChatFormatting.DARK_RED + "[ANNOUNCMENT] " + ChatFormatting.RED + message);
             }
         } else {
-            SalHack.SendMessage(TextFormatting.BLUE + "[IRC] " + TextFormatting.GREEN + sender + ": " + IRC.getChatColor() + message);
+            SalHack.SendMessage(TextFormatting.BLUE + "[IRC] " + TextFormatting.GREEN + sender + ": " + IRCModule.getChatColor() + message);
         }
     }
 
