@@ -55,7 +55,7 @@ public class IRCModule extends Module {
     }
 
     public IRCModule() {
-        super("IRC", new String[]{"IRC"}, "Allows you to talk to other ZoeHack users", "NONE", 14361680, Module.ModuleType.MISC);
+        super("IRC", new String[]{"IRC"}, "Allows you to talk to other Salhack/Negroware users", "NONE", 14361680, Module.ModuleType.MISC);
     }
 
     public void onEnable() {
