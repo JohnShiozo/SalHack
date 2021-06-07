@@ -1,5 +1,6 @@
 package me.ionar.salhack.main;
 
+import me.ionar.salhack.irc.IrcManager;
 import me.ionar.salhack.util.render.RenderUtilBot;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.managers.CapeManager;
@@ -37,6 +38,7 @@ public class SalHack
     private static PresetsManager m_PresetsManager = new PresetsManager();
     private static UUIDManager m_UUIDManager = new UUIDManager();
     public static RotationManager rotationManager;
+    public static IrcManager irc;
 
     public static void Init()
     {

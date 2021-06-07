@@ -42,4 +42,11 @@ extends MinecraftEvent {
             super(packet);
         }
     }
+
+    public static class setPacket
+    extends PacketEvent {
+        public setPacket(Packet packet) {
+            super(packet);
+        }
+    }
 }
